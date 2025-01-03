@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using pagaTuCole.Models;
+using pagaTuCole.Permisos;
 
 namespace pagaTuCole.Controllers
 {
+    [ValidarSesion]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -25,6 +28,12 @@ namespace pagaTuCole.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult CerrarSesion()
+        {
+            Session["usuario"] = null;
+            return RedirectToAction("Login", "Acceso");
         }
     }
 }
