@@ -1,33 +1,118 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Pagos - Colegio San Martín</title>
+    <link rel="stylesheet" href="~/Content/CSS/cssInicio/variables.css">
+    <link rel="stylesheet" href="~/Content/CSS/cssInicio/reset.css">
+    <link rel="stylesheet" href="~/Content/CSS/cssInicio/banner.css">
+    <link rel="stylesheet" href="~/Content/CSS/cssInicio/dashboard.css">
+    <link rel="stylesheet" href="~/Content/CSS/cssInicio/main.css">
+    <link rel="stylesheet" href="~/Content/CSS/cssInicio/buttons.css">
+    <link rel="stylesheet" href="~/Content/CSS/cssInicio/footer.css">
+    <link rel="stylesheet" href="~/Content/CSS/cssInicio/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
+    <main class="main-content">
+        <div class="banner">
+            <div class="banner-content">
+                <h2>¡Bienvenido a PagaTuCole!</h2>
+                <p>Gestione los pagos escolares de sus hijos de manera rápida y segura</p>
+                <div class="banner-highlight">
+                    <i class="fas fa-shield-alt"></i> Sistema 100% seguro y confiable
+                </div>
+            </div>
+        </div>
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
-    </div>
-</main>
+        <div class="user-welcome">
+            <div class="user-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="user-info">
+                <h3>Juan Pérez Martínez</h3>
+                <p><i class="fas fa-users"></i> Apoderado de 2 alumnos</p>
+            </div>
+        </div>
+
+        <div class="main-menu">
+            <div class="menu-item">
+                <i class="fas fa-users"></i>
+                <h4>Mis Alumnos</h4>
+                <p>Gestione la información y estado académico de sus alumnos</p>
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-money-bill-wave"></i>
+                <h4>Realizar Pagos</h4>
+                <p>Efectúe pagos de pensiones de manera segura</p>
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-history"></i>
+                <h4>Historial</h4>
+                <p>Consulte y descargue sus comprobantes de pago</p>
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-calendar-alt"></i>
+                <h4>Cronograma</h4>
+                <p>Visualice fechas de vencimiento y montos pendientes</p>
+            </div>
+        </div>
+
+        <div class="upcoming-payments">
+            <h3><i class="fas fa-bell"></i> Próximos Pagos</h3>
+            <div class="payment-list">
+                <div class="payment-item">
+                    <div class="payment-info">
+                        <div class="student-avatar">AM</div>
+                        <div class="payment-details">
+                            <h5>Ana Martínez</h5>
+                            <p>Mensualidad Abril 2024</p>
+                            <small><i class="fas fa-calendar"></i> Vence: 05/04/2024</small>
+                        </div>
+                    </div>
+                    <div class="payment-amount">
+                        <p>S/. 450.00</p>
+                        <button class="button button-success">Pagar</button>
+                    </div>
+                </div>
+                <div class="payment-item">
+                    <div class="payment-info">
+                        <div class="student-avatar">CM</div>
+                        <div class="payment-details">
+                            <h5>Carlos Martínez</h5>
+                            <p>Mensualidad Abril 2024</p>
+                            <small><i class="fas fa-calendar"></i> Vence: 05/04/2024</small>
+                        </div>
+                    </div>
+                    <div class="payment-amount">
+                        <p>S/. 450.00</p>
+                        <button class="button button-success">Pagar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-summary">
+            <h3><i class="fas fa-chart-pie"></i> Resumen de Estado</h3>
+            <div class="status-grid">
+                <div class="status-item">
+                    <h4>Alumnos a Cargo</h4>
+                    <p>2 Alumnos</p>
+                </div>
+                <div class="status-item">
+                    <h4>Próximo Vencimiento</h4>
+                    <p>5 de Abril, 2024</p>
+                </div>
+                <div class="status-item">
+                    <h4>Estado de Pagos</h4>
+                    <p><i class="fas fa-check-circle"></i> Al día</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+

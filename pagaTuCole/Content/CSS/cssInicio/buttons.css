@@ -1,0 +1,31 @@
+.button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.button-success {
+    background-color: var(--success-color);
+}
+
+.button-success:hover {
+    background-color: #219a52;
+}
+
+.button-warning {
+    background-color: var(--warning-color);
+}
+
+.button-warning:hover {
+    background-color: #d4ac0d;
+}

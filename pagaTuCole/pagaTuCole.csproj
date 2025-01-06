@@ -146,7 +146,18 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\CSS\cssInicio\banner.css" />
+    <Content Include="Content\CSS\cssInicio\buttons.css" />
+    <Content Include="Content\CSS\cssInicio\dashboard.css" />
+    <Content Include="Content\CSS\cssInicio\footer.css" />
+    <Content Include="Content\CSS\cssInicio\header.css" />
+    <Content Include="Content\CSS\cssInicio\main.css" />
+    <Content Include="Content\CSS\cssInicio\reset.css" />
+    <Content Include="Content\CSS\cssInicio\responsive.css" />
+    <Content Include="Content\CSS\cssInicio\variables.css" />
+    <Content Include="Content\CSS\inicio.css" />
     <Content Include="Content\CSS\Login.css" />
+    <Content Include="Content\CSS\pagos.css" />
     <Content Include="Content\image\image-removebg-preview.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -168,6 +179,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\payment.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
