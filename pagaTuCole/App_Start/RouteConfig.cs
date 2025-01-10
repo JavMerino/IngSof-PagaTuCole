@@ -12,6 +12,11 @@ namespace pagaTuCole
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+                name: "Administrador",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Administrador", action = "GestionApoderado", id = UrlParameter.Optional }
+            );
 
             routes.MapRoute(
                 name: "Default",

@@ -121,10 +121,24 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccesoController.cs" />
+    <Compile Include="Controllers\AdministradorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Administrador.cs" />
+    <Compile Include="Models\Alumno.cs" />
+    <Compile Include="Models\Apoderado.cs" />
+    <Compile Include="Models\ApoderadoAlumno.cs" />
+    <Compile Include="Models\BilleteraDigital.cs" />
+    <Compile Include="Models\Concepto.cs" />
+    <Compile Include="Models\Descuento.cs" />
+    <Compile Include="Models\Nivel.cs" />
+    <Compile Include="Models\Pago.cs" />
+    <Compile Include="Models\PagoAdicional.cs" />
+    <Compile Include="Models\PagoEfectivo.cs" />
+    <Compile Include="Models\PagoTarjeta.cs" />
+    <Compile Include="Models\PensionEnseñanza.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Permisos\ValidarSesionAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -195,6 +209,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Acceso\Login.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Administrador\GestionApoderado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

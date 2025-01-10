@@ -8,10 +8,11 @@ namespace pagaTuCole.Models
 {
     public class Usuario
     {
-        public int IdUsuario { get; set; }
+        public string IdUsuario { get; set; }
         public string Username { get; set; }
         public string Contraseña { get; set; }
-        
+        public bool Rol { get; set; } // 0: admin, 1: apoderado
+        public string IdPersona { get; set; }
         public int estado { get; set; }
     }
 }
