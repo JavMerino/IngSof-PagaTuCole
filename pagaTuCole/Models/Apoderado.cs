@@ -8,7 +8,6 @@ namespace pagaTuCole.Models
     public class Apoderado
     {
         public string IdApoderado { get; set; }
-        public string Parentesco { get; set; } = "";
         public string Ocupacion { get; set; } = "";
         public string TeleContacto { get; set; } = "";
         public string TipoDocumento { get; set; }
@@ -24,7 +23,12 @@ namespace pagaTuCole.Models
         public string Username { get; set; }
         public string Contraseña { get; set; }
 
+        public int CantidadAlumnos { get; set; }
+
         public string IdPersona { get; set; }
         public string IdUsuario { get; set; }
+
+        // Lista de alumnos
+        public List<Alumno> Alumnos { get; set; }
     }
 }

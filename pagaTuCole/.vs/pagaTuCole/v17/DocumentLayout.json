@@ -3,124 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\views\\acceso\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:views\\acceso\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\views\\administrador\\gestionapoderado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:views\\administrador\\gestionapoderado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\views\\administrador\\gestionapoderado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:views\\administrador\\gestionapoderado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\controllers\\administradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:controllers\\administradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\controllers\\administradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:controllers\\administradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\models\\pagotarjeta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\pagotarjeta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\models\\pagoefectivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\pagoefectivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\models\\billeteradigital.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\billeteradigital.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\models\\pago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\pago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\models\\pensionense\u00F1anza.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\pensionense\u00F1anza.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\models\\pagoadicional.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\pagoadicional.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\models\\concepto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\concepto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\models\\apoderadoalumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\apoderadoalumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\models\\descuento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\descuento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\models\\nivel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\nivel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\models\\administrador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\administrador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\models\\apoderado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\apoderado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\models\\alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\content\\css\\inicio.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:content\\css\\inicio.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\content\\css\\pagos.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:content\\css\\pagos.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\permisos\\validarsesionattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:permisos\\validarsesionattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\models\\sqlconection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\sqlconection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -130,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 247,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -158,67 +78,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Contact.cshtml",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Home\\Contact.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Contact.cshtml",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Home\\Contact.cshtml",
-              "RelativeToolTip": "Views\\Home\\Contact.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-10T06:03:53.928Z",
+              "DocumentIndex": 2,
+              "Title": "AdministradorController.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Controllers\\AdministradorController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdministradorController.cs",
+              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Controllers\\AdministradorController.cs",
+              "RelativeToolTip": "Controllers\\AdministradorController.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABYAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T21:44:43.216Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "BundleConfig.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\App_Start\\BundleConfig.cs",
-              "RelativeDocumentMoniker": "App_Start\\BundleConfig.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\App_Start\\BundleConfig.cs",
-              "RelativeToolTip": "App_Start\\BundleConfig.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "Apoderado.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Apoderado.cs",
+              "RelativeDocumentMoniker": "Models\\Apoderado.cs",
+              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Apoderado.cs",
+              "RelativeToolTip": "Models\\Apoderado.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAADwvwsAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T06:02:54.241Z",
+              "WhenOpened": "2025-01-10T19:08:59.827Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FilterConfig.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\App_Start\\FilterConfig.cs",
-              "RelativeDocumentMoniker": "App_Start\\FilterConfig.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\App_Start\\FilterConfig.cs",
-              "RelativeToolTip": "App_Start\\FilterConfig.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAB0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-10T17:58:30.324Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AQIAAGwAAAAAAAAAAAASwIoAAACcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T06:02:49.136Z",
+              "WhenOpened": "2025-01-10T17:47:48.17Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-06T06:52:26.47Z",
+              "DocumentIndex": 8,
+              "Title": "ValidarSesionAttribute.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Permisos\\ValidarSesionAttribute.cs",
+              "RelativeDocumentMoniker": "Permisos\\ValidarSesionAttribute.cs",
+              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Permisos\\ValidarSesionAttribute.cs",
+              "RelativeToolTip": "Permisos\\ValidarSesionAttribute.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAwAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T17:43:08.161Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Acceso\\Login.cshtml",
-              "RelativeDocumentMoniker": "Views\\Acceso\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Acceso\\Login.cshtml",
-              "RelativeToolTip": "Views\\Acceso\\Login.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAABoAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-10T02:57:46.646Z",
+              "DocumentIndex": 9,
+              "Title": "SqlConection.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\SqlConection.cs",
+              "RelativeDocumentMoniker": "Models\\SqlConection.cs",
+              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\SqlConection.cs",
+              "RelativeToolTip": "Models\\SqlConection.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T17:41:44.055Z",
               "EditorCaption": ""
             },
             {
@@ -229,320 +162,49 @@
               "RelativeDocumentMoniker": "Controllers\\AccesoController.cs",
               "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Controllers\\AccesoController.cs",
               "RelativeToolTip": "Controllers\\AccesoController.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAQwDkAAABNAAAA",
+              "ViewState": "AQIAACAAAAAAAAAAAAAiwDYAAABRAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T02:57:48.733Z",
+              "WhenOpened": "2025-01-10T17:36:03.291Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "_AdminLayout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_AdminLayout.cshtml",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_AdminLayout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-10T04:58:15.6Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "GestionApoderado.cshtml",
               "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Administrador\\GestionApoderado.cshtml",
               "RelativeDocumentMoniker": "Views\\Administrador\\GestionApoderado.cshtml",
               "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Administrador\\GestionApoderado.cshtml",
               "RelativeToolTip": "Views\\Administrador\\GestionApoderado.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAACwAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-10T04:58:35.623Z",
+              "WhenOpened": "2025-01-10T21:42:31.66Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Usuario.cs",
-              "RelativeDocumentMoniker": "Models\\Usuario.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Usuario.cs",
-              "RelativeToolTip": "Models\\Usuario.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T03:15:17.865Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\_ViewStart.cshtml",
-              "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\_ViewStart.cshtml",
-              "RelativeToolTip": "Views\\_ViewStart.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "DocumentIndex": 7,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Home\\Contact.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Contact.cshtml",
+              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Home\\Contact.cshtml",
+              "RelativeToolTip": "Views\\Home\\Contact.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-10T06:06:24.483Z",
+              "WhenOpened": "2025-01-10T19:54:26.249Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "RouteConfig.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\App_Start\\RouteConfig.cs",
-              "RelativeDocumentMoniker": "App_Start\\RouteConfig.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\App_Start\\RouteConfig.cs",
-              "RelativeToolTip": "App_Start\\RouteConfig.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAABYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T04:53:21.44Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAxwAwAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T02:54:20.588Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AdministradorController.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Controllers\\AdministradorController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AdministradorController.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Controllers\\AdministradorController.cs",
-              "RelativeToolTip": "Controllers\\AdministradorController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T04:38:08.04Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 5,
               "Title": "About.cshtml",
               "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Home\\About.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\About.cshtml",
               "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Home\\About.cshtml",
               "RelativeToolTip": "Views\\Home\\About.cshtml",
-              "ViewState": "AQIAAKgAAAAAAAAAAAAAADAAAAAxAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABsAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-03T02:46:38.255Z",
+              "WhenOpened": "2025-01-10T17:44:07.872Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "PagoAdicional.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\PagoAdicional.cs",
-              "RelativeDocumentMoniker": "Models\\PagoAdicional.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\PagoAdicional.cs",
-              "RelativeToolTip": "Models\\PagoAdicional.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T04:08:52.712Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "PagoTarjeta.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\PagoTarjeta.cs",
-              "RelativeDocumentMoniker": "Models\\PagoTarjeta.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\PagoTarjeta.cs",
-              "RelativeToolTip": "Models\\PagoTarjeta.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T04:16:36.84Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "PensionEnse\u00F1anza.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\PensionEnse\u00F1anza.cs",
-              "RelativeDocumentMoniker": "Models\\PensionEnse\u00F1anza.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\PensionEnse\u00F1anza.cs",
-              "RelativeToolTip": "Models\\PensionEnse\u00F1anza.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T04:12:24.796Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Pago.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Pago.cs",
-              "RelativeDocumentMoniker": "Models\\Pago.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Pago.cs",
-              "RelativeToolTip": "Models\\Pago.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T04:13:41.557Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "PagoEfectivo.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\PagoEfectivo.cs",
-              "RelativeDocumentMoniker": "Models\\PagoEfectivo.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\PagoEfectivo.cs",
-              "RelativeToolTip": "Models\\PagoEfectivo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T04:15:56.294Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "BilleteraDigital.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\BilleteraDigital.cs",
-              "RelativeDocumentMoniker": "Models\\BilleteraDigital.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\BilleteraDigital.cs",
-              "RelativeToolTip": "Models\\BilleteraDigital.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T04:16:24.362Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Concepto.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Concepto.cs",
-              "RelativeDocumentMoniker": "Models\\Concepto.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Concepto.cs",
-              "RelativeToolTip": "Models\\Concepto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T04:07:25.805Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAACoAAAAAAAAAAAAAADgAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-06T03:34:42.115Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "ApoderadoAlumno.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\ApoderadoAlumno.cs",
-              "RelativeDocumentMoniker": "Models\\ApoderadoAlumno.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\ApoderadoAlumno.cs",
-              "RelativeToolTip": "Models\\ApoderadoAlumno.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T04:07:02.578Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Descuento.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Descuento.cs",
-              "RelativeDocumentMoniker": "Models\\Descuento.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Descuento.cs",
-              "RelativeToolTip": "Models\\Descuento.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T04:05:16.583Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "Nivel.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Nivel.cs",
-              "RelativeDocumentMoniker": "Models\\Nivel.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Nivel.cs",
-              "RelativeToolTip": "Models\\Nivel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T04:04:47.739Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Administrador.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Administrador.cs",
-              "RelativeDocumentMoniker": "Models\\Administrador.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Administrador.cs",
-              "RelativeToolTip": "Models\\Administrador.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T03:59:37.928Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Apoderado.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Apoderado.cs",
-              "RelativeDocumentMoniker": "Models\\Apoderado.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Apoderado.cs",
-              "RelativeToolTip": "Models\\Apoderado.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T03:53:22.717Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Alumno.cs",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Alumno.cs",
-              "RelativeDocumentMoniker": "Models\\Alumno.cs",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Models\\Alumno.cs",
-              "RelativeToolTip": "Models\\Alumno.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T03:46:54.567Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "inicio.css",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Content\\CSS\\inicio.css",
-              "RelativeDocumentMoniker": "Content\\CSS\\inicio.css",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Content\\CSS\\inicio.css",
-              "RelativeToolTip": "Content\\CSS\\inicio.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEQAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-01-06T04:00:05.066Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "pagos.css",
-              "DocumentMoniker": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Content\\CSS\\pagos.css",
-              "RelativeDocumentMoniker": "Content\\CSS\\pagos.css",
-              "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Content\\CSS\\pagos.css",
-              "RelativeToolTip": "Content\\CSS\\pagos.css",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAACEAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-01-06T04:03:13.877Z"
             }
           ]
         },

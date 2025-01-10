@@ -139,6 +139,7 @@
     <Compile Include="Models\PagoEfectivo.cs" />
     <Compile Include="Models\PagoTarjeta.cs" />
     <Compile Include="Models\PensionEnseñanza.cs" />
+    <Compile Include="Models\SqlConection.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Permisos\ValidarSesionAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -211,6 +212,7 @@
     <Content Include="Views\Acceso\Login.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Administrador\GestionApoderado.cshtml" />
+    <Content Include="Views\Administrador\inicio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

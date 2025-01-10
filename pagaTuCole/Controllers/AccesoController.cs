@@ -8,75 +8,72 @@ using System.Data;
 using System.Data.SqlClient;
 
 
-namespace pagaTuCole.Controllers
-{
-    public class AccesoController : Controller
+    namespace pagaTuCole.Controllers
     {
-        static string cadena = "Data Source=MERINO\\SQLEXPRESS;Initial Catalog=PagaTuCole;Integrated Security=true";
-
-
-        // GET: Acceso
-        public ActionResult Login()
+        public class AccesoController : Controller
         {
-            return View();
-        }
-
-        [HttpPost]
-
-        public ActionResult Login(Usuario oUsuario)
-        {
-            using (SqlConnection cn = new SqlConnection(cadena))
+            // GET: Acceso
+            public ActionResult Login()
             {
-                try
+                return View();
+            }
+
+            [HttpPost]
+
+            public ActionResult Login(Usuario oUsuario)
+            {
+                using (SqlConnection cn = new SqlConnection(SqlConection.CadenaConexion))
                 {
-                    SqlCommand cmd = new SqlCommand("pa_ValidarUsuario", cn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    // Agregar parámetros de entrada
-                    cmd.Parameters.AddWithValue("@username", oUsuario.Username);
-                    cmd.Parameters.AddWithValue("@contraseña", oUsuario.Contraseña);
-
-                    // Abrir conexión
-                    cn.Open();
-
-                    // Ejecutar y leer los resultados
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    try
                     {
-                        if (reader.Read())
-                        {
-                            // Obtener el idUsuario y rol
-                            oUsuario.IdUsuario = reader["idUsuario"].ToString();
-                            bool rol = reader["rol"] != DBNull.Value && Convert.ToBoolean(reader["rol"]);
+                        SqlCommand cmd = new SqlCommand("pa_ValidarUsuario", cn);
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                            if (oUsuario.IdUsuario != "")
+                        // Agregar parámetros de entrada
+                        cmd.Parameters.AddWithValue("@username", oUsuario.Username);
+                        cmd.Parameters.AddWithValue("@contraseña", oUsuario.Contraseña);
+
+                        // Abrir conexión
+                        cn.Open();
+
+                        // Ejecutar y leer los resultados
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
                             {
-                                // Redirigir según el rol
+                                // Obtener el idUsuario y rol
+                                oUsuario.IdUsuario = reader["idUsuario"].ToString();
+                                bool rol = reader["rol"] != DBNull.Value && Convert.ToBoolean(reader["rol"]);
+
                                 Session["usuario"] = oUsuario;
-                                if (!rol) // Administrador
+
+                                if (oUsuario.IdUsuario != "")
                                 {
-                                    ViewBag.Layout = "~/Views/Shared/_AdminLayout.cshtml";
-                                    return RedirectToAction("GestionApoderado", "Administrador");
-                                }
-                                else // Apoderado
-                                {
-                                    ViewBag.Layout = "~/Views/Shared/_Layout.cshtml";
-                                    return RedirectToAction("Index", "Home");
+                                    if (!rol) // Administrador
+                                    {
+                                        ViewBag.Layout = "~/Views/Shared/_AdminLayout.cshtml";
+                                        return RedirectToAction("GestionApoderado", "Administrador");
+                                    }
+                                    else // Apoderado
+                                    {
+                                        ViewBag.Layout = "~/Views/Shared/_Layout.cshtml";
+                                        return RedirectToAction("Index", "Home");
+                                    }
                                 }
                             }
                         }
                     }
+                    catch (Exception ex)
+                    {
+                        ViewData["Mensaje"] = "Error al iniciar sesión: " + ex.Message;
+                    }
                 }
-                catch (Exception ex)
-                {
-                    ViewData["Mensaje"] = "Error al iniciar sesión: " + ex.Message;
-                }
+
+                // Si no es válido o ocurre un error
+                ViewData["Mensaje"] = "Usuario no encontrado o credenciales inválidas";
+                return View();
             }
 
-            // Si no es válido o ocurre un error
-            ViewData["Mensaje"] = "Usuario no encontrado o credenciales inválidas";
-            return View();
+
         }
-
-
     }
-}

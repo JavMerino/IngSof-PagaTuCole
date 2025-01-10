@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
+    
     <main class="main-content">
         <div class="banner">
             <div class="banner-content">
@@ -27,14 +27,14 @@
                 </div>
             </div>
         </div>
-
+        @model pagaTuCole.Models.Apoderado
         <div class="user-welcome">
             <div class="user-avatar">
                 <i class="fas fa-user"></i>
             </div>
             <div class="user-info">
-                <h3>Juan Pérez Martínez</h3>
-                <p><i class="fas fa-users"></i> Apoderado de 2 alumnos</p>
+                <h3>@Model.Nombres @Model.ApPaterno @Model.ApMaterno</h3>
+                <p><i class="fas fa-users"></i> Apoderado de @Model.CantidadAlumnos alumnos</p>
             </div>
         </div>
 

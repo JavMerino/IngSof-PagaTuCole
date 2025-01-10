@@ -1,21 +1,15 @@
-﻿
-@{
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestion Apoderados</title>
+    <title>Sistema de Apoderados</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    
     <div class="container mt-5">
-        <h2 class="mb-4">Gestion de Apoderados</h2>
+        <h2 class="mb-4">Listado de Apoderados</h2>
 
         <!-- Search and Add Section -->
         <div class="d-flex justify-content-between align-items-center mb-4">
@@ -34,37 +28,30 @@
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
-                    <th>Nombre Completo</th>
-                    <th>Tipo Documento</th>
-                    <th>Número Documento</th>
+                    <th>Nombre</th>
                     <th>Email</th>
                     <th>Teléfono</th>
-                    <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var apoderado in Model)
+                @foreach (var guardian in Model)
                 {
                     <tr>
-                        <td>@apoderado.Nombres @apoderado.ApPaterno @apoderado.ApMaterno</td>
-                        <td>@apoderado.TipoDocumento</td>
-                        <td>@apoderado.NumDocumento</td>
-                        <td>@apoderado.Email</td>
-                        <td>@apoderado.TeleContacto</td>
-                        <td>@(apoderado.Estado ? "Activo" : "Inactivo")</td>
+                        <td>@guardian.Name</td>
+                        <td>@guardian.Email</td>
+                        <td>@guardian.Phone</td>
                         <td>
                             <button class="btn btn-warning btn-sm"
-                                    data-id="@apoderado.IdApoderado"
-                                    data-name="@apoderado.Nombres @apoderado.ApPaterno @apoderado.ApMaterno"
-                                    data-email="@apoderado.Email"
-                                    data-phone="@apoderado.TeleContacto"
-                                    data-occupation="@apoderado.Ocupacion"
+                                    data-id="@guardian.Id"
+                                    data-name="@guardian.Name"
+                                    data-email="@guardian.Email"
+                                    data-phone="@guardian.Phone"
                                     onclick="handleEdit(this)">
                                 <i class="fas fa-edit"></i> Editar
                             </button>
                             <button class="btn btn-danger btn-sm"
-                                    data-id="@apoderado.IdApoderado"
+                                    data-id="@guardian.Id"
                                     onclick="handleDelete(this)">
                                 <i class="fas fa-trash"></i> Eliminar
                             </button>
@@ -174,5 +161,3 @@
     </script>
 </body>
 </html>
-
-

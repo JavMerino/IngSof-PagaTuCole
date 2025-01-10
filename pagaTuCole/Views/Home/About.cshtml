@@ -7,62 +7,46 @@
 </head>
 <body>
     <main>
+        @model pagaTuCole.Models.Apoderado
         <div class="user-info">
             <h3>Información del Apoderado</h3>
-            <p><strong>Nombre:</strong> Juan Pérez</p>
-            <p><strong>DNI:</strong> 12345678</p>
+            <p><strong>Nombre:</strong> @Model.Nombres @Model.ApPaterno @Model.ApMaterno</p>
+            <p><strong>@Model.TipoDocumento:</strong> @Model.NumDocumento</p>
+            <p><strong>Telefono:</strong> @Model.TeleContacto</p>
+            <p><strong>Email:</strong> @Model.Email</p>
+            <p><strong>Direccion:</strong> @Model.Direccion</p>
         </div>
 
         <div class="students-section">
             <h3>Alumnos a Cargo</h3>
             <div class="students-grid">
-                <div class="student-card">
-                    <h4>María Pérez</h4>
-                    <p>Grado: 3ro Secundaria</p>
-                    <p>Estado: Pendiente</p>
-                    <div class="payment-status">
-                        <h5>Pensiones 2024</h5>
-                        <div class="months-grid">
-                            <div class="month paid">Ene</div>
-                            <div class="month paid">Feb</div>
-                            <div class="month paid">Mar</div>
-                            <div class="month pending">Abr</div>
-                            <div class="month">May</div>
-                            <div class="month">Jun</div>
-                            <div class="month">Jul</div>
-                            <div class="month">Ago</div>
-                            <div class="month">Sep</div>
-                            <div class="month">Oct</div>
-                            <div class="month">Nov</div>
-                            <div class="month">Dic</div>
+                @foreach (var alumno in Model.Alumnos)
+                {
+                    <div class="student-card">
+                        <h4>@alumno.Nombres</h4>
+                        <p>Grado: @alumno.Grado</p>
+                        <p>Nivel: @alumno.Nivel</p>
+                        <p>Parentesco: @alumno.Parentesco</p>
+                        <div class="payment-status">
+                            <h5>Pensiones 2024</h5>
+                            <div class="months-grid">
+                                <div class="month paid">Ene</div>
+                                <div class="month paid">Feb</div>
+                                <div class="month pending">Mar</div>
+                                <div class="month pending">Abr</div>
+                                <div class="month">May</div>
+                                <div class="month">Jun</div>
+                                <div class="month">Jul</div>
+                                <div class="month">Ago</div>
+                                <div class="month">Sep</div>
+                                <div class="month">Oct</div>
+                                <div class="month">Nov</div>
+                                <div class="month">Dic</div>
+                            </div>
                         </div>
+                        <button class="pay-button">Realizar Pago</button>
                     </div>
-                    <button class="pay-button">Realizar Pago</button>
-                </div>
-
-                <div class="student-card">
-                    <h4>Carlos Pérez</h4>
-                    <p>Grado: 1ro Secundaria</p>
-                    <p>Estado: Al día</p>
-                    <div class="payment-status">
-                        <h5>Pensiones 2024</h5>
-                        <div class="months-grid">
-                            <div class="month paid">Ene</div>
-                            <div class="month paid">Feb</div>
-                            <div class="month paid">Mar</div>
-                            <div class="month paid">Abr</div>
-                            <div class="month">May</div>
-                            <div class="month">Jun</div>
-                            <div class="month">Jul</div>
-                            <div class="month">Ago</div>
-                            <div class="month">Sep</div>
-                            <div class="month">Oct</div>
-                            <div class="month">Nov</div>
-                            <div class="month">Dic</div>
-                        </div>
-                    </div>
-                    <button class="pay-button">Realizar Pago</button>
-                </div>
+                }
             </div>
         </div>
         <!-- Modal de Pago -->
