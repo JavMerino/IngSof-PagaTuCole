@@ -26,6 +26,7 @@ namespace pagaTuCole.Models
         public int CantidadAlumnos { get; set; }
 
         public string IdPersona { get; set; }
+        public string IdTipoDocumento { get; set; }
         public string IdUsuario { get; set; }
 
         // Lista de alumnos
