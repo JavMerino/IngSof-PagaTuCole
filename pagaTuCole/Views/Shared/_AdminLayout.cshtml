@@ -37,7 +37,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="@Url.Action("Index", "Administrador")" class="brand-link">
-                <span class="brand-text font-weight-light">Panel Admin</span>
+                <span class="brand-text font-weight-light">Administrador</span>
             </a>
 
             <!-- Sidebar -->
@@ -46,15 +46,48 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                         <li class="nav-item">
+                            <a href="@Url.Action("Usuarios", "Administrador")" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>Gestión de Administradores</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a href="@Url.Action("Index", "Administrador")" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>Dashboard</p>
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>Gestion de Estudiante</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="@Url.Action("Usuarios", "Administrador")" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>Gestión de Apoderados</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="@Url.Action("Usuarios", "Administrador")" class="nav-link">
                                 <i class="nav-icon fas fa-users"></i>
-                                <p>Gestión de Usuarios</p>
+                                <p>Gestión de Conceptos</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="@Url.Action("Usuarios", "Administrador")" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>Gestión de Mensualidad</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Usuarios", "Administrador")" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>Gestión de Becas</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Usuarios", "Administrador")" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>Gestión de Reportes</p>
                             </a>
                         </li>
                         <!-- Agrega más elementos según necesites -->
@@ -84,13 +117,6 @@
             </section>
         </div>
 
-        <!-- Footer -->
-        <footer class="main-footer">
-            <div class="float-right d-none d-sm-block">
-                <b>Version</b> 1.0.0
-            </div>
-            <strong>Copyright &copy; @DateTime.Now.Year</strong>
-        </footer>
     </div>
 
     <!-- Scripts -->

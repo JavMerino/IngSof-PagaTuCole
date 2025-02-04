@@ -1,0 +1,332 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestion Apoderados</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="~/Content/CSS/">
+
+</head>
+
+<body>
+    <main>
+        <div class="container-fluid mt-5">
+            <h2 class="mb-4">Gestion de Apoderados</h2>
+
+            <!-- Search and Add Section -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <form class="form-inline">
+                    <input type="text" class="form-control mr-2" placeholder="Buscar apoderado...">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-search"></i> Buscar
+                    </button>
+                </form>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addGuardianModal">
+                    <i class="fas fa-plus"></i> Agregar Apoderado
+                </button>
+            </div>
+
+            <!-- Guardians Table -->
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>Tipo Documento</th>
+                        <th>Número Documento</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Direccion</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Ocupacion</th>
+                        <th>Username</th>
+                        <th>Contraseña</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var apoderado in Model)
+                    {
+                        <tr>
+                            <td>@apoderado.Nombres @apoderado.ApPaterno @apoderado.ApMaterno</td>
+                            <td>@apoderado.TipoDocumento</td>
+                            <td>@apoderado.NumDocumento</td>
+                            <td>@apoderado.Email</td>
+                            <td>@apoderado.TeleContacto</td>
+                            <td>@apoderado.Direccion</td>
+                            <td>@apoderado.FecNacimiento.ToString("yyyy-MM-dd")</td>
+                            <td>@apoderado.Ocupacion</td>
+                            <td>@apoderado.Username</td>
+                            <td>@apoderado.Contraseña</td>
+                            <td>@(apoderado.Estado ? "Activo" : "Inactivo")</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm"
+                                        data-id="@apoderado.IdApoderado"
+                                        data-idpersona="@apoderado.IdPersona"
+                                        data-nombre="@apoderado.Nombres"
+                                        data-appaterno="@apoderado.ApPaterno"
+                                        data-apmaterno="@apoderado.ApMaterno"
+                                        data-tipodocumento="@apoderado.TipoDocumento"
+                                        data-idtipodocumento="@apoderado.IdTipoDocumento"
+                                        data-numdocumento="@apoderado.NumDocumento"
+                                        data-email="@apoderado.Email"
+                                        data-direccion="@apoderado.Direccion"
+                                        data-telefono="@apoderado.TeleContacto"
+                                        data-fecnacimiento="@apoderado.FecNacimiento.ToString("yyyy-MM-dd")"
+                                        data-ocupacion="@apoderado.Ocupacion"
+                                        data-username="@apoderado.Username"
+                                        data-contraseña="@apoderado.Contraseña"
+                                        data-estado="@apoderado.Estado"
+                                        onclick="handleEdit(this)">
+                                    <i class="fas fa-edit"></i> Editar
+                                </button>
+                                <button class="btn btn-danger btn-sm"
+                                        data-id="@apoderado.IdApoderado"
+                                        onclick="handleDelete(this)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Add apoderado Modal -->
+        <div class="modal fade" id="addGuardianModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Agregar Apoderado</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="post" action="/GestionApoderado/AgregarApoderado">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="Nombres" placeholder="Ingrese el nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="apPaterno">Apellido Paterno</label>
+                                <input type="text" class="form-control" id="apPaterno" name="ApPaterno" placeholder="Ingrese el apellido paterno" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="apMaterno">Apellido Materno</label>
+                                <input type="text" class="form-control" id="apMaterno" name="ApMaterno" placeholder="Ingrese el apellido materno" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipoDocumento">Tipo Documento</label>
+                                <select class="form-control" id="tipoDocumento" name="TipoDocumento" required onchange="convertirTipoDocumento()">
+                                    <option value="">Seleccione el tipo de documento</option>
+                                    <option value="1">DNI</option>
+                                    <option value="2">Pasaporte</option>
+                                    <option value="3">Carnet de extranjería</option>
+                                    <option value="4">RUC</option>
+                                    <option value="5">Licencia</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="numDocumento">Número Documento</label>
+                                <input type="number" class="form-control" id="numDocumento" name="NumDocumento" placeholder="Ingrese el número de documento" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="ocupacion">Ocupación</label>
+                                <input type="text" class="form-control" id="ocupacion" name="Ocupacion" placeholder="Ingrese la ocupación" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fecNacimiento">Fecha Nacimiento</label>
+                                <input type="date" name="FecNacimiento" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="Email" placeholder="Ingrese el email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="direccion">Dirección</label>
+                                <input type="text" class="form-control" id="direccion" name="Direccion" placeholder="Ingrese la dirección" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="teleContacto">Teléfono</label>
+                                <input type="tel" class="form-control" id="teleContacto" name="TeleContacto" placeholder="Ingrese el teléfono" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Guardian Modal -->
+        <div class="modal fade" id="editGuardianModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Editar Apoderado</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="post" action="/GestionApoderado/EditarApoderado">
+                        <div class="modal-body">
+                            <input type="hidden" id="editId" name="IdApoderado" />
+                            <input type="hidden" id="editIdPersona" name="IdPersona" />
+                            <input type="hidden" id="editIdTipoDocumento" name="IdTipoDocumento" />
+                            <div class="form-group">
+                                <label>Nombres</label>
+                                <input type="text" id="editNombres" name="Nombres" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Apellido Paterno</label>
+                                <input type="text" id="editApPaterno" name="ApPaterno" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Apellido Materno</label>
+                                <input type="text" id="editApMaterno" name="ApMaterno" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tipo Documento</label>
+                                <input type="text" id="editTipoDocumento" name="TipoDocumento" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Número Documento</label>
+                                <input type="number" id="editNumDocumento" name="NumDocumento" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Ocupación</label>
+                                <input type="text" id="editOcupacion" name="Ocupacion" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Fecha de Nacimiento</label>
+                                <input type="date" id="editFecNacimiento" name="FecNacimiento" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="editEmail" name="Email" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Dirección</label>
+                                <input type="text" id="editDireccion" name="Direccion" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Teléfono</label>
+                                <input type="tel" id="editTelefono" name="TeleContacto" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    <form id="formDelete" method="post" action="/GestionApoderado/EliminarApoderado">
+        <input type="hidden" name="idApoderado" id="deleteIdApoderado" />
+    </form>
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+        function convertirTipoDocumento() {
+            const tipoDocumentoSelect = document.getElementById("tipoDocumento");
+            const enumeracionId = tipoDocumentoSelect.value; // Obtiene el valor numérico seleccionado (1, 2, 3, etc.)
+
+            // Mapa de enumeración a IDs de la tabla
+            const tipoDocumentoMap = {
+                "1": "DOC001", // DNI
+                "2": "DOC002", // Pasaporte
+                "3": "DOC003", // Carnet de extranjería
+                "4": "DOC004", // RUC
+                "5": "DOC005"  // Licencia
+            };
+
+            // Obtener el ID correspondiente
+            const idDocumento = tipoDocumentoMap[enumeracionId] || null;
+
+            if (idDocumento) {
+                console.log("ID del tipo de documento para el backend:", idDocumento);
+
+                // Aquí puedes enviar 'idDocumento' al backend
+            } else {
+                console.log("Por favor, selecciona un tipo de documento válido.");
+            }
+        }
+
+
+        function handleEdit(button) {
+
+            // Mostrar el modal
+            $('#editGuardianModal').modal('show');
+
+            const id = button.getAttribute('data-id');
+            const idPersona = button.getAttribute('data-idpersona');
+            const nombre = button.getAttribute('data-nombre');
+            const apPaterno = button.getAttribute('data-appaterno');
+            const apMaterno = button.getAttribute('data-apmaterno');
+            const IdTipoDocumento = button.getAttribute('data-idtipodocumento');
+            const tipoDocumento = button.getAttribute('data-tipodocumento');
+            const numDocumento = button.getAttribute('data-numdocumento');
+            const email = button.getAttribute('data-email');
+            const direccion = button.getAttribute('data-direccion');
+            const telefono = button.getAttribute('data-telefono');
+            const fecNacimiento = button.getAttribute('data-fecnacimiento');
+            const ocupacion = button.getAttribute('data-ocupacion');
+
+            // Asignar valores a los campos del modal
+            document.getElementById('editId').value = id;
+            document.getElementById('editIdPersona').value = idPersona;
+            document.getElementById('editNombres').value = nombre;
+            document.getElementById('editApPaterno').value = apPaterno;
+            document.getElementById('editApMaterno').value = apMaterno;
+            document.getElementById('editIdTipoDocumento').value = IdTipoDocumento;
+            document.getElementById('editTipoDocumento').value = tipoDocumento;
+            document.getElementById('editNumDocumento').value = numDocumento;
+            document.getElementById('editEmail').value = email;
+            document.getElementById('editDireccion').value = direccion;
+            document.getElementById('editTelefono').value = telefono;
+            document.getElementById('editFecNacimiento').value = fecNacimiento;
+            document.getElementById('editOcupacion').value = ocupacion;
+        }
+
+        function handleDelete(button) {
+            const id = button.getAttribute('data-id');
+            if (confirm('¿Está seguro de eliminar este apoderado?')) {
+                // Colocamos el ID en el input hidden del formulario y lo enviamos
+                document.getElementById('deleteIdApoderado').value = id;
+                document.getElementById('formDelete').submit();
+            }
+        }
+    </script>
+
+
+</body>
+</html>
+
+

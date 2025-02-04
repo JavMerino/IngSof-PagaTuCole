@@ -51,6 +51,8 @@ C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\roslyn\vbc.rsp
 C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\roslyn\VBCSCompiler.exe
 C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\Antlr3.Runtime.dll
+C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\EntityFramework.dll
+C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\EntityFramework.SqlServer.dll
 C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\Newtonsoft.Json.dll
@@ -62,6 +64,8 @@ C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\System.Web.WebPages.Depl
 C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\System.Web.WebPages.dll
 C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\System.Web.WebPages.Razor.dll
 C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\WebGrease.dll
+C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\EntityFramework.xml
+C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\EntityFramework.SqlServer.xml
 C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\System.Web.Helpers.xml
 C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\System.Web.Mvc.xml
 C:\Users\Javier\Desktop\UNP\ING SOFTWARE\pagaTuCole\bin\System.Web.Optimization.xml
