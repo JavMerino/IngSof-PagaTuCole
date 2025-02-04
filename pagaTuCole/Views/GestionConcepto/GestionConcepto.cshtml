@@ -1,0 +1,164 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Conceptos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <main>
+        <div class="container-fluid mt-5">
+            <h2 class="mb-4">Gestión de Conceptos</h2>
+
+            <!-- Botón de agregar concepto -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addConceptoModal">
+                    <i class="fas fa-plus"></i> Agregar Concepto
+                </button>
+            </div>
+
+            <!-- Tabla de conceptos -->
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Importe</th>
+                        <th>Estado</th>
+                        <th>Mes</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var concepto in Model)
+                    {
+                        <tr>
+                            <td>@concepto.Descripcion</td>
+                            <td>@concepto.Importe</td>
+                            <td>@(concepto.Estado ? "Activo" : "Inactivo")</td>
+                            <td>@concepto.Mes</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editConceptoModal"
+                                        data-id="@concepto.IdConcepto"
+                                        data-descripcion="@concepto.Descripcion"
+                                        data-importe="@concepto.Importe"
+                                        data-mes="@concepto.Mes"
+                                        onclick="handleEdit(this)">
+                                    <i class="fas fa-edit"></i> Editar
+                                </button>
+                                <button class="btn btn-danger btn-sm" data-id="@concepto.IdConcepto" onclick="handleDelete(this)">
+                                    <i class="fas fa-trash"></i> Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal para agregar concepto -->
+        <div class="modal fade" id="addConceptoModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Agregar Concepto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="post" action="/GestionConcepto/AgregarConcepto">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="descripcion">Descripción</label>
+                                <input type="text" class="form-control" id="descripcion" name="Descripcion" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="importe">Importe</label>
+                                <input type="number" class="form-control" id="importe" name="Importe" required step="0.01" />
+                            </div>
+                            <div class="form-group">
+                                <label for="mes">Mes</label>
+                                <input type="text" class="form-control" id="mes" name="Mes" required />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para editar concepto -->
+        <div class="modal fade" id="editConceptoModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Editar Concepto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="post" action="/GestionConcepto/EditarConcepto">
+                        <div class="modal-body">
+                            <input type="hidden" id="editId" name="IdConcepto" />
+                            <div class="form-group">
+                                <label for="editDescripcion">Descripción</label>
+                                <input type="text" id="editDescripcion" name="Descripcion" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="editImporte">Importe</label>
+                                <input type="number" id="editImporte" name="Importe" class="form-control" required step="0.01" />
+                            </div>
+                            <div class="form-group">
+                                <label for="editMes">Mes</label>
+                                <input type="text" id="editMes" name="Mes" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <form id="formDelete" method="post" action="/GestionConcepto/EliminarConcepto">
+        <input type="hidden" name="idConcepto" id="deleteIdConcepto" />
+    </form>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function handleEdit(button) {
+            const id = button.getAttribute('data-id');
+            const descripcion = button.getAttribute('data-descripcion');
+            const importe = button.getAttribute('data-importe');
+            const mes = button.getAttribute('data-mes');
+
+            document.getElementById('editId').value = id;
+            document.getElementById('editDescripcion').value = descripcion;
+            document.getElementById('editImporte').value = importe;
+            document.getElementById('editMes').value = mes;
+        }
+
+        function handleDelete(button) {
+            const id = button.getAttribute('data-id');
+            document.getElementById('deleteIdConcepto').value = id;
+            document.getElementById('formDelete').submit();
+        }
+    </script>
+</body>
+</html>

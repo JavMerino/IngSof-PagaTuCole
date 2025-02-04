@@ -129,7 +129,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccesoController.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
+    <Compile Include="Controllers\GestionAdministradorController.cs" />
+    <Compile Include="Controllers\GestionAlumnoController.cs" />
     <Compile Include="Controllers\GestionApoderadoController.cs" />
+    <Compile Include="Controllers\GestionConceptoController.cs" />
+    <Compile Include="Controllers\GestionDescuentoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -222,6 +226,10 @@
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Administrador\inicio.cshtml" />
     <Content Include="Views\GestionApoderado\GestionApoderado.cshtml" />
+    <Content Include="Views\GestionAlumno\GestionAlumno.cshtml" />
+    <Content Include="Views\GestionDescuento\GestionDescuento.cshtml" />
+    <Content Include="Views\GestionConcepto\GestionConcepto.cshtml" />
+    <Content Include="Views\GestionAdministrador\GestionAdministrador.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,214 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Administradores</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <main>
+        <div class="container-fluid mt-5">
+            <h2 class="mb-4">Gestión de Administradores</h2>
+
+            <!-- Botón de agregar administrador -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addAdministradorModal">
+                    <i class="fas fa-plus"></i> Agregar Administrador
+                </button>
+            </div>
+
+            <!-- Tabla de administradores -->
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>Tipo Documento</th>
+                        <th>Número Documento</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Fecha de Ingreso</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var administrador in Model)
+                    {
+                        <tr>
+                            <td>@administrador.Nombres @administrador.ApPaterno @administrador.ApMaterno</td>
+                            <td>@administrador.TipoDocumento</td>
+                            <td>@administrador.NumDocumento</td>
+                            <td>@administrador.Email</td>
+                            <td>@administrador.Telefono</td>
+                            <td>@administrador.FecIngreso.ToString("yyyy-MM-dd")</td>
+                            <td>@(administrador.Estado ? "Activo" : "Inactivo")</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editAdministradorModal"
+                                        data-id="@administrador.IdAdministrador"
+                                        data-nombres="@administrador.Nombres"
+                                        data-apPaterno="@administrador.ApPaterno"
+                                        data-apMaterno="@administrador.ApMaterno"
+                                        data-telefono="@administrador.Telefono"
+                                        data-email="@administrador.Email"
+                                        onclick="handleEdit(this)">
+                                    <i class="fas fa-edit"></i> Editar
+                                </button>
+                                <button class="btn btn-danger btn-sm" data-id="@administrador.IdAdministrador" onclick="handleDelete(this)">
+                                    <i class="fas fa-trash"></i> Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal para agregar administrador -->
+        <div class="modal fade" id="addAdministradorModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Agregar Administrador</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="post" action="/GestionAdministrador/AgregarAdministrador">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="nombres">Nombres</label>
+                                <input type="text" class="form-control" id="nombres" name="Nombres" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="apPaterno">Apellido Paterno</label>
+                                <input type="text" class="form-control" id="apPaterno" name="ApPaterno" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="apMaterno">Apellido Materno</label>
+                                <input type="text" class="form-control" id="apMaterno" name="ApMaterno" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="Email" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono</label>
+                                <input type="text" class="form-control" id="telefono" name="Telefono" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="fecIngreso">Fecha de Ingreso</label>
+                                <input type="date" class="form-control" id="fecIngreso" name="FecIngreso" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="estado">Estado</label>
+                                <select class="form-control" id="estado" name="Estado" required>
+                                    <option value="true">Activo</option>
+                                    <option value="false">Inactivo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para editar administrador -->
+        <div class="modal fade" id="editAdministradorModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Editar Administrador</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="post" action="/GestionAdministrador/EditarAdministrador">
+                        <div class="modal-body">
+                            <input type="hidden" id="editId" name="IdAdministrador" />
+                            <div class="form-group">
+                                <label for="editNombres">Nombres</label>
+                                <input type="text" id="editNombres" name="Nombres" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="editApPaterno">Apellido Paterno</label>
+                                <input type="text" id="editApPaterno" name="ApPaterno" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="editApMaterno">Apellido Materno</label>
+                                <input type="text" id="editApMaterno" name="ApMaterno" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="editEmail">Email</label>
+                                <input type="email" id="editEmail" name="Email" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="editTelefono">Teléfono</label>
+                                <input type="text" id="editTelefono" name="Telefono" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="editFecIngreso">Fecha de Ingreso</label>
+                                <input type="date" id="editFecIngreso" name="FecIngreso" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="editEstado">Estado</label>
+                                <select class="form-control" id="editEstado" name="Estado" required>
+                                    <option value="true">Activo</option>
+                                    <option value="false">Inactivo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <form id="formDelete" method="post" action="/GestionAdministrador/EliminarAdministrador">
+        <input type="hidden" name="idAdministrador" id="deleteIdAdministrador" />
+    </form>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function handleEdit(button) {
+            const id = button.getAttribute('data-id');
+            const nombres = button.getAttribute('data-nombres');
+            const apPaterno = button.getAttribute('data-apPaterno');
+            const apMaterno = button.getAttribute('data-apMaterno');
+            const telefono = button.getAttribute('data-telefono');
+            const email = button.getAttribute('data-email');
+
+            document.getElementById('editId').value = id;
+            document.getElementById('editNombres').value = nombres;
+            document.getElementById('editApPaterno').value = apPaterno;
+            document.getElementById('editApMaterno').value = apMaterno;
+            document.getElementById('editTelefono').value = telefono;
+            document.getElementById('editEmail').value = email;
+        }
+
+        function handleDelete(button) {
+            const id = button.getAttribute('data-id');
+            document.getElementById('deleteIdAdministrador').value = id;
+            document.getElementById('formDelete').submit();
+        }
+    </script>
+</body>
+</html>

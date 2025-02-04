@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\KEVIN\\Docs\\UNIVERSIDAD\\Ciclo VIII\\Ingenier\u00EDa de Software\\ProyPagaTuCole\\IngSof-PagaTuCole\\pagaTuCole\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\kevin\\docs\\universidad\\ciclo viii\\ingenier\u00EDa de software\\proypagatucole\\ingsof-pagatucole\\pagatucole\\models\\administrador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\administrador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\kevin\\docs\\universidad\\ciclo viii\\ingenier\u00EDa de software\\proypagatucole\\ingsof-pagatucole\\pagatucole\\views\\gestionadministrador\\gestionadministrador.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:views\\gestionadministrador\\gestionadministrador.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\kevin\\docs\\universidad\\ciclo viii\\ingenier\u00EDa de software\\proypagatucole\\ingsof-pagatucole\\pagatucole\\controllers\\gestionadministradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:controllers\\gestionadministradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\kevin\\docs\\universidad\\ciclo viii\\ingenier\u00EDa de software\\proypagatucole\\ingsof-pagatucole\\pagatucole\\views\\gestionadministrador\\gestionadministrador.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:views\\gestionadministrador\\gestionadministrador.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\kevin\\docs\\universidad\\ciclo viii\\ingenier\u00EDa de software\\proypagatucole\\ingsof-pagatucole\\pagatucole\\models\\administrador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\administrador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\kevin\\docs\\universidad\\ciclo viii\\ingenier\u00EDa de software\\proypagatucole\\ingsof-pagatucole\\pagatucole\\views\\gestionconcepto\\gestionconcepto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 247,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,13 +78,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "GestionAdministrador.cshtml",
               "DocumentMoniker": "C:\\Users\\KEVIN\\Docs\\UNIVERSIDAD\\Ciclo VIII\\Ingenier\u00EDa de Software\\ProyPagaTuCole\\IngSof-PagaTuCole\\pagaTuCole\\Views\\GestionAdministrador\\GestionAdministrador.cshtml",
               "RelativeDocumentMoniker": "Views\\GestionAdministrador\\GestionAdministrador.cshtml",
               "ToolTip": "C:\\Users\\KEVIN\\Docs\\UNIVERSIDAD\\Ciclo VIII\\Ingenier\u00EDa de Software\\ProyPagaTuCole\\IngSof-PagaTuCole\\pagaTuCole\\Views\\GestionAdministrador\\GestionAdministrador.cshtml",
               "RelativeToolTip": "Views\\GestionAdministrador\\GestionAdministrador.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAABoAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-02-04T21:45:09.114Z",
               "EditorCaption": ""
@@ -97,20 +97,20 @@
               "RelativeDocumentMoniker": "Controllers\\GestionAdministradorController.cs",
               "ToolTip": "C:\\Users\\KEVIN\\Docs\\UNIVERSIDAD\\Ciclo VIII\\Ingenier\u00EDa de Software\\ProyPagaTuCole\\IngSof-PagaTuCole\\pagaTuCole\\Controllers\\GestionAdministradorController.cs",
               "RelativeToolTip": "Controllers\\GestionAdministradorController.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAQwEgAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAADIAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-04T21:44:35.531Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Administrador.cs",
               "DocumentMoniker": "C:\\Users\\KEVIN\\Docs\\UNIVERSIDAD\\Ciclo VIII\\Ingenier\u00EDa de Software\\ProyPagaTuCole\\IngSof-PagaTuCole\\pagaTuCole\\Models\\Administrador.cs",
               "RelativeDocumentMoniker": "Models\\Administrador.cs",
               "ToolTip": "C:\\Users\\KEVIN\\Docs\\UNIVERSIDAD\\Ciclo VIII\\Ingenier\u00EDa de Software\\ProyPagaTuCole\\IngSof-PagaTuCole\\pagaTuCole\\Models\\Administrador.cs",
               "RelativeToolTip": "Models\\Administrador.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAowB0AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAowB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-04T21:40:04.193Z",
               "EditorCaption": ""
