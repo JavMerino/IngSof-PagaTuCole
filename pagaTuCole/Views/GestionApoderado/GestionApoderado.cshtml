@@ -23,10 +23,8 @@
             <!-- Search and Add Section -->
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <form class="form-inline">
-                    <input type="text" class="form-control mr-2" placeholder="Buscar apoderado...">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-search"></i> Buscar
-                    </button>
+                    <input type="text" id="searchBox" class="form-control mr-2" placeholder="Buscar apoderado..." onkeyup="searchTable()" />
+                    
                 </form>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addGuardianModal">
                     <i class="fas fa-plus"></i> Agregar Apoderado
@@ -34,7 +32,7 @@
             </div>
 
             <!-- Guardians Table -->
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="tablaApoderados">
                 <thead class="thead-dark">
                     <tr>
                         <th>Nombre Completo</th>
@@ -321,6 +319,24 @@
                 // Colocamos el ID en el input hidden del formulario y lo enviamos
                 document.getElementById('deleteIdApoderado').value = id;
                 document.getElementById('formDelete').submit();
+            }
+        }
+
+        function searchTable() {
+            const input = document.getElementById('searchBox');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('tablaApoderados');
+            const tr = table.getElementsByTagName('tr');
+
+            // Empezamos en i=1 para no tocar la primera fila (cabecera)
+            for (let i = 1; i < tr.length; i++) {
+                let rowText = tr[i].textContent.toLowerCase();
+
+                if (rowText.indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
             }
         }
     </script>

@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:controllers\\gestionapoderadocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|c:\\users\\javier\\desktop\\unp\\ing software\\pagatucole\\models\\apoderado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\models\\apoderado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{119637E1-901D-40F1-A26A-D9269AE72DF6}|pagaTuCole.csproj|solutionrelative:models\\apoderado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -35,8 +35,7 @@
               "ViewState": "AQIAAAsAAAAAAAAAAAA9wBwAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-04T16:04:52.035Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -70,7 +69,7 @@
               "RelativeDocumentMoniker": "Views\\GestionApoderado\\GestionApoderado.cshtml",
               "ToolTip": "C:\\Users\\Javier\\Desktop\\UNP\\ING SOFTWARE\\pagaTuCole\\Views\\GestionApoderado\\GestionApoderado.cshtml",
               "RelativeToolTip": "Views\\GestionApoderado\\GestionApoderado.cshtml",
-              "ViewState": "AQIAAGQAAAAAAAAAAAAowGwAAAAYAAAA",
+              "ViewState": "AQIAACgBAAAAAAAAAAAiwEsBAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-02-04T14:43:13.286Z",
               "EditorCaption": ""
@@ -85,8 +84,7 @@
               "RelativeToolTip": "Controllers\\GestionApoderadoController.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAQwIMAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T14:27:41.333Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-04T14:27:41.333Z"
             }
           ]
         },
