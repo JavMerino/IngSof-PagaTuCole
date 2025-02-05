@@ -10,6 +10,7 @@ namespace pagaTuCole.Models
         public string IdApoderadoAlumno { get; set; }
         public string IdAlumno { get; set; }
         public string IdApoderado { get; set; }
+        public string Parentesco { get; set; }
         public DateTime FechaRegistro { get; set; }
         public bool Estado { get; set; } = true;
     }

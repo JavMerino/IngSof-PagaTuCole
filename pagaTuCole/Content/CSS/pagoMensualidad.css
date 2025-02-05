@@ -1,0 +1,96 @@
+﻿/* Months grid */
+.months-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.month {
+    padding: 0.5rem;
+    text-align: center;
+    background-color: #eee;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+    .month.paid {
+        background-color: var(--success-color);
+        color: white;
+    }
+
+    .month.pending {
+        background-color: var(--warning-color);
+        color: white;
+    }
+
+/* Payment selection styles */
+.month-selection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.month.disabled {
+    background-color: #007bff;
+    color: white;
+}
+
+.month-checkbox {
+    display: none;
+}
+
+.month-label {
+    display: block;
+    padding: 0.8rem;
+    background-color: #eee;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+    /* Cuando el mes esté pendiente (Estado 0): amarillo */
+    .month-label.yellow {
+        background-color: #e5e5e5; /* Color amarillo (Bootstrap warning) */
+        color: black;
+    }
+
+    /* Cuando el mes esté pagado (Estado 1): azul */
+    .month-label.blue {
+        background-color: #264653; /* Color azul */
+        color: white;
+    }
+
+.month-checkbox:checked + .month-label.yellow {
+    background-color: #e9c46a; /* Por ejemplo, un amarillo dorado distinto */
+    color: black;
+}
+
+.month-checkbox:checked + .month-label.blue {
+    background-color: #007bff; /* azul */
+    color: white;
+}
+payment-details {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border-radius: 4px;
+}
+
+.payment-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+}
+
+.total-row {
+    border-top: 2px solid #ddd;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    font-weight: bold;
+}
+
+.payment-method-option {
+    margin-bottom: 10px;
+}

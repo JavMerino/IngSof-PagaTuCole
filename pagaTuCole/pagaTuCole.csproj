@@ -186,6 +186,7 @@
     <Content Include="Content\CSS\gestionApoderado.css" />
     <Content Include="Content\CSS\inicio.css" />
     <Content Include="Content\CSS\Login.css" />
+    <Content Include="Content\CSS\pagoMensualidad.css" />
     <Content Include="Content\CSS\pagos.css" />
     <Content Include="Content\image\image-removebg-preview.png" />
     <Content Include="favicon.ico" />
@@ -232,6 +233,7 @@
     <Content Include="Views\GestionConcepto\GestionConcepto.cshtml" />
     <Content Include="Views\GestionAdministrador\GestionAdministrador.cshtml" />
     <Content Include="Views\Reportes\Reportes.cshtml" />
+    <Content Include="Views\GestionApoderado\ConsultarAlumnos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

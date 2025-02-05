@@ -19,6 +19,22 @@ namespace pagaTuCole.Controllers
             return View(apoderados);
         }
 
+        [HttpGet]
+        public ActionResult ConsultarAlumnos(string idApoderado)
+        {
+            // 1. Obtener la lista de alumnos de ese apoderado:
+            var listaAlumnos = ObtenerAlumnosPorApoderado(idApoderado);
+            var listaAlumnosDisponibles= ObtenerAlumnosDisponibles();
+
+            ViewBag.disponibles = listaAlumnosDisponibles;
+
+            ViewBag.IdApoderado = idApoderado;
+            // O la lógica que corresponda a tu DB (stored procedure, etc.)
+
+            // 2. Retornar la vista con esa lista   
+            return View(listaAlumnos);
+        }
+
         private List<Apoderado> ObtenerApoderados()
         {
             var apoderados = new List<Apoderado>();
@@ -137,6 +153,169 @@ namespace pagaTuCole.Controllers
 
             // Puedes redirigir o retornar un JSON de éxito
             return RedirectToAction("GestionApoderado");
+        }
+
+        [HttpPost]
+        public ActionResult EliminarRelacionApoderadoAlumno(string idApoderadoAlumno)
+        {
+            using (SqlConnection cn = new SqlConnection(SqlConection.CadenaConexion))
+            {
+                SqlCommand cmd = new SqlCommand("pa_EliminarRelacionApoderadoAlumno", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_apoderadoAlumno", idApoderadoAlumno);
+
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+            return RedirectToAction("GestionApoderado");
+        }
+
+        private List<Alumno> ObtenerAlumnosPorApoderado(string idApoderado)
+        {
+            var alumnos = new List<Alumno>();
+
+            string query = "pa_ObtenerAlumnosPorIdApoderado";
+
+            using (SqlConnection cn = new SqlConnection(SqlConection.CadenaConexion))
+            {
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_apoderado", idApoderado);
+
+                cn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        try
+                        {
+                            alumnos.Add(new Alumno
+                            {
+                                IdAlumno = reader["id_alumno"].ToString(),
+                                IdApoderadoAlumno = reader["idApoderadoAlumno"].ToString(),
+                                Nombres = $"{reader["nombre_alumno"]} {reader["apellido_paterno"]} {reader["apellido_materno"]}",
+                                Grado = reader["grado"].ToString(),
+                                TipoDocumento = reader["tipo_documento"].ToString(),
+                                NumDocumento = reader["numero_documento"].ToString(),
+                                Email = reader["email_alumno"].ToString(),
+                                Telefono = reader["telefono_alumno"].ToString(),
+                                Direccion = reader["direccion_alumno"].ToString(),
+                                FecNacimiento = Convert.ToDateTime(reader["fecha_nacimiento_alumno"]),
+                                Descuento = reader["descuento"] == DBNull.Value ? "No especificado" : reader["descuento"].ToString(),
+                                porcentajeDescuento = reader["porcentaje_descuento"] != DBNull.Value ? Convert.ToDouble(reader["porcentaje_descuento"]) : 0.0,
+                                FecIngreso = Convert.ToDateTime(reader["fecha_ingreso"]),
+                                IdDescuento = reader["id_descuento"] == DBNull.Value ? "No especificado" : reader["id_descuento"].ToString(),
+                                Mensualidad = Convert.ToDouble(reader["mensualidad"]),
+                                Nivel = reader["nivel"].ToString(),
+                                Parentesco = reader["parentesco"].ToString(),
+                            });
+                        }
+                        catch (Exception ex)
+                        {
+                            // Loguear el error o inspeccionarlo
+                            throw new Exception($"Error al procesar un registro: {ex.Message}");
+                        }
+                    }
+                }
+            }
+
+            return alumnos;
+        }
+
+        private List<Alumno> ObtenerAlumnosDisponibles()
+        {
+            var alumnos = new List<Alumno>();
+
+            string query = "pa_ListarAlumnosDisponibles";
+
+            using (SqlConnection cn = new SqlConnection(SqlConection.CadenaConexion))
+            {
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        try
+                        {
+                            alumnos.Add(new Alumno
+                            {
+                                IdAlumno = reader["id_alumno"].ToString(),
+                                Nombres = $"{reader["nombres"]} {reader["apPaterno"]} {reader["apMaterno"]}",
+                                Grado = reader["grado"].ToString(),
+                                NumDocumento = reader["numDocumento"].ToString()
+                            });
+                        }
+                        catch (Exception ex)
+                        {
+                            // Loguear el error o inspeccionarlo
+                            throw new Exception($"Error al procesar un registro: {ex.Message}");
+                        }
+                    }
+                }
+            }
+
+            return alumnos;
+        }
+
+        public ActionResult AsignarAlumno(ApoderadoAlumno model)
+        {
+            using (SqlConnection cn = new SqlConnection(SqlConection.CadenaConexion))
+            {
+                SqlCommand cmd = new SqlCommand("pa_AsignarAlumnoApoderado", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_alumno", model.IdAlumno);
+                cmd.Parameters.AddWithValue("@id_apoderado", model.IdApoderado);
+                cmd.Parameters.AddWithValue("@parentesco", model.Parentesco);
+
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+            return RedirectToAction("ConsultarAlumnos", new { idApoderado = model.IdApoderado });
+        }
+
+
+        [HttpGet]
+        public JsonResult ObtenerMensualidades(string IdApoderadoAlumno)
+        {
+            var mensualidades = new List<PensionEnseñanza>();
+
+            using (SqlConnection cn = new SqlConnection(SqlConection.CadenaConexion))
+            {
+                SqlCommand cmd = new SqlCommand("pa_ObtenerMensualidades", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_apoderadoAlumno", IdApoderadoAlumno);
+                cn.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        mensualidades.Add(new PensionEnseñanza
+                        {
+                            IdPensionEnseñanza = reader["id_pensionEnseñanza"].ToString(),
+                            IdApoderadoAlumno = reader["id_apoderadoAlumno"].ToString(),
+                            ImporteTotal = Convert.ToDecimal(reader["importeTotal"]),
+                            Mes = reader["mes"].ToString(),
+                            Estado = Convert.ToInt32(reader["estado"]) // Asegúrate de agregar el estado en tu procedimiento almacenado
+                        });
+                    }
+                }
+            }
+
+            // Convertir a JSON
+            return Json(mensualidades.Select(m => new
+            {
+                IdPensionEnseñanza = m.IdPensionEnseñanza,
+                IdApoderadoAlumno = m.IdApoderadoAlumno,
+                ImporteTotal = m.ImporteTotal,
+                Mes = m.Mes,
+                Estado = m.Estado // 0: Pendiente, 1: Pagado
+            }), JsonRequestBehavior.AllowGet);
         }
 
     }

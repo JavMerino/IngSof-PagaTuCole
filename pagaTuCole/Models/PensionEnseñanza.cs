@@ -9,10 +9,10 @@ namespace pagaTuCole.Models
     {
         public string IdPensionEnseñanza { get; set; }
         public string Mes { get; set; }
-        public string IdApoderado { get; set; }
+        public string IdApoderadoAlumno { get; set; }
         public decimal Mensualidad { get; set; }
         public decimal Descuento { get; set; }
         public decimal ImporteTotal { get; set; }
-        public bool Estado { get; set; } = false; // 0: pendiente, 1: pagado
+        public int Estado { get; set; } // 0: pendiente, 1: pagado
     }
 }
