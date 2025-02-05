@@ -19,13 +19,17 @@
 
             <!-- Botón de agregar administrador -->
             <div class="d-flex justify-content-between align-items-center mb-4">
+                <form class="form-inline">
+                    <input type="text" id="searchBox" class="form-control mr-2" placeholder="Buscar Administrador..." onkeyup="searchTable()" />
+
+                </form>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addAdministradorModal">
                     <i class="fas fa-plus"></i> Agregar Administrador
                 </button>
             </div>
 
             <!-- Tabla de administradores -->
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="tablaAdministrador">
                 <thead class="thead-dark">
                     <tr>
                         <th>Nombre Completo</th>
@@ -34,6 +38,9 @@
                         <th>Email</th>
                         <th>Teléfono</th>
                         <th>Fecha de Ingreso</th>
+                        <th>Direccion</th>
+                        <th>Usuario</th>
+                        <th>Contraseña</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
@@ -48,19 +55,32 @@
                             <td>@administrador.Email</td>
                             <td>@administrador.Telefono</td>
                             <td>@administrador.FecIngreso.ToString("yyyy-MM-dd")</td>
+                            <td>@administrador.Direccion</td>
+                            <td>@administrador.Username</td>
+                            <td>@administrador.Contraseña</td>
+
                             <td>@(administrador.Estado ? "Activo" : "Inactivo")</td>
                             <td>
                                 <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editAdministradorModal"
                                         data-id="@administrador.IdAdministrador"
+                                        data-idpersona="@administrador.IdPersona"
                                         data-nombres="@administrador.Nombres"
-                                        data-apPaterno="@administrador.ApPaterno"
-                                        data-apMaterno="@administrador.ApMaterno"
+                                        data-appaterno="@administrador.ApPaterno"
+                                        data-apmaterno="@administrador.ApMaterno"
+                                        data-tipodocumento="@administrador.IdTipoDocumento"
+                                        data-numerodocumento="@administrador.NumDocumento"
+
                                         data-telefono="@administrador.Telefono"
                                         data-email="@administrador.Email"
+                                        data-direccion="@administrador.Direccion"
+
                                         onclick="handleEdit(this)">
                                     <i class="fas fa-edit"></i> Editar
                                 </button>
-                                <button class="btn btn-danger btn-sm" data-id="@administrador.IdAdministrador" onclick="handleDelete(this)">
+                                <button class="btn btn-danger btn-sm"
+                                        data-id="@administrador.IdAdministrador"
+                                        data-idpersona="@administrador.IdPersona"
+                                        onclick="handleDelete(this)">
                                     <i class="fas fa-trash"></i> Eliminar
                                 </button>
                             </td>
@@ -84,34 +104,46 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="nombres">Nombres</label>
-                                <input type="text" class="form-control" id="nombres" name="Nombres" required />
+                                <input type="text" class="form-control" id="nombres" name="Nombres"  placeholder="Ingrese su nombre completo" required />
                             </div>
                             <div class="form-group">
                                 <label for="apPaterno">Apellido Paterno</label>
-                                <input type="text" class="form-control" id="apPaterno" name="ApPaterno" required />
+                                <input type="text" class="form-control" id="apPaterno" name="ApPaterno" placeholder="Ingrese apellido paterno" required />
                             </div>
                             <div class="form-group">
                                 <label for="apMaterno">Apellido Materno</label>
-                                <input type="text" class="form-control" id="apMaterno" name="ApMaterno" required />
+                                <input type="text" class="form-control" id="apMaterno" name="ApMaterno" placeholder="Ingrese apellido materno" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Tipo Documento</label>
+                                <select class="form-control" id="TipoDocumento" name="IdTipoDocumento" required>
+                                    <option value="">Seleccione el tipo de documento</option>
+                                    <option value="DOC001">DNI</option>
+                                    <option value="DOC002">Pasaporte</option>
+                                    <option value="DOC003">Carnet de extranjería</option>
+                                    <option value="DOC004">RUC</option>
+                                    <option value="DOC005">Licencia</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="numDocumento">Número Documento</label>
+                                <input type="number" class="form-control" id="numDocumento" name="NumDocumento" placeholder="Ingrese el número de documento" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="Email" required />
+                                <input type="email" class="form-control" id="email" name="Email"placeholder="Ingrese email" required />
                             </div>
                             <div class="form-group">
                                 <label for="telefono">Teléfono</label>
-                                <input type="text" class="form-control" id="telefono" name="Telefono" required />
+                                <input type="text" class="form-control" id="telefono" name="Telefono" placeholder="Ingrese el número de telefono"required />
                             </div>
                             <div class="form-group">
-                                <label for="fecIngreso">Fecha de Ingreso</label>
-                                <input type="date" class="form-control" id="fecIngreso" name="FecIngreso" required />
+                                <label for="fecNacimiento">Fecha Nacimiento</label>
+                                <input type="date" name="FecNacimiento" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="estado">Estado</label>
-                                <select class="form-control" id="estado" name="Estado" required>
-                                    <option value="true">Activo</option>
-                                    <option value="false">Inactivo</option>
-                                </select>
+                                <label for="direccion">Dirección</label>
+                                <input type="text" class="form-control" id="direccion" name="Direccion" placeholder="Ingrese la dirección" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -136,6 +168,7 @@
                     <form method="post" action="/GestionAdministrador/EditarAdministrador">
                         <div class="modal-body">
                             <input type="hidden" id="editId" name="IdAdministrador" />
+                            <input type="hidden" id="editIdPersona" name="IdPersona" />
                             <div class="form-group">
                                 <label for="editNombres">Nombres</label>
                                 <input type="text" id="editNombres" name="Nombres" class="form-control" required />
@@ -149,6 +182,21 @@
                                 <input type="text" id="editApMaterno" name="ApMaterno" class="form-control" required />
                             </div>
                             <div class="form-group">
+                                <label>Tipo Documento</label>
+                                <select class="form-control" id="editTipoDocumento" name="IdTipoDocumento" required>
+                                    <option value="">Seleccione el tipo de documento</option>
+                                    <option value="DOC001">DNI</option>
+                                    <option value="DOC002">Pasaporte</option>
+                                    <option value="DOC003">Carnet de extranjería</option>
+                                    <option value="DOC004">RUC</option>
+                                    <option value="DOC005">Licencia</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="numDocumento">Número Documento</label>
+                                <input type="number" class="form-control" id="editNumDocumento" name="NumDocumento" placeholder="Ingrese el número de documento" required>
+                            </div>
+                            <div class="form-group">
                                 <label for="editEmail">Email</label>
                                 <input type="email" id="editEmail" name="Email" class="form-control" required />
                             </div>
@@ -157,15 +205,8 @@
                                 <input type="text" id="editTelefono" name="Telefono" class="form-control" required />
                             </div>
                             <div class="form-group">
-                                <label for="editFecIngreso">Fecha de Ingreso</label>
-                                <input type="date" id="editFecIngreso" name="FecIngreso" class="form-control" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="editEstado">Estado</label>
-                                <select class="form-control" id="editEstado" name="Estado" required>
-                                    <option value="true">Activo</option>
-                                    <option value="false">Inactivo</option>
-                                </select>
+                                <label for="direccion">Dirección</label>
+                                <input type="text" class="form-control" id="editDireccion" name="Direccion" placeholder="Ingrese la dirección" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -181,6 +222,7 @@
 
     <form id="formDelete" method="post" action="/GestionAdministrador/EliminarAdministrador">
         <input type="hidden" name="idAdministrador" id="deleteIdAdministrador" />
+        <input type="hidden" name="idPersona" id="deleteIdPersona" />
     </form>
 
     <!-- JavaScript -->
@@ -189,25 +231,62 @@
 
     <script>
         function handleEdit(button) {
+            // Obtener valores de los atributos data-
             const id = button.getAttribute('data-id');
             const nombres = button.getAttribute('data-nombres');
-            const apPaterno = button.getAttribute('data-apPaterno');
-            const apMaterno = button.getAttribute('data-apMaterno');
+            const idPersona = button.getAttribute('data-idpersona');
+            const apPaterno = button.getAttribute('data-appaterno');
+            const apMaterno = button.getAttribute('data-apmaterno');
             const telefono = button.getAttribute('data-telefono');
             const email = button.getAttribute('data-email');
+            const tipoDocumento = button.getAttribute('data-tipodocumento');
+            const numDocumento = button.getAttribute('data-numerodocumento');
+            const direccion = button.getAttribute('data-direccion');
 
+            // Asignar valores a los campos del modal
             document.getElementById('editId').value = id;
+            document.getElementById('editIdPersona').value = idPersona;
             document.getElementById('editNombres').value = nombres;
             document.getElementById('editApPaterno').value = apPaterno;
             document.getElementById('editApMaterno').value = apMaterno;
             document.getElementById('editTelefono').value = telefono;
             document.getElementById('editEmail').value = email;
+            document.getElementById('editTipoDocumento').value = tipoDocumento;
+            document.getElementById('editNumDocumento').value = numDocumento;
+            document.getElementById('editDireccion').value = direccion;
+
+            // Mostrar el modal (si estás usando Bootstrap)
+            $('#editAdministradorModal').modal('show');
         }
 
         function handleDelete(button) {
-            const id = button.getAttribute('data-id');
-            document.getElementById('deleteIdAdministrador').value = id;
+            // Obtenemos el id del administrador y el id de la persona
+            const idAdmin = button.getAttribute('data-id');
+            const idPersona = button.getAttribute('data-idpersona');
+
+            // Asignamos a los inputs hidden del form
+            document.getElementById('deleteIdAdministrador').value = idAdmin;
+            document.getElementById('deleteIdPersona').value = idPersona;
+
+            // Hacemos submit del formulario
             document.getElementById('formDelete').submit();
+        }
+        function searchTable() {
+            const input = document.getElementById('searchBox');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('tablaAdministrador');
+            const tr = table.getElementsByTagName('tr');
+
+            // Empezamos en i=1 para no tocar la primera fila (cabecera)
+            for (let i = 1; i < tr.length; i++) {
+                let rowText = tr[i].textContent.toLowerCase();
+
+                if (rowText.indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
         }
     </script>
 </body>

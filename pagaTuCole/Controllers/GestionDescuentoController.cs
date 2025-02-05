@@ -52,24 +52,80 @@ namespace pagaTuCole.Controllers
         [HttpPost]
         public ActionResult AgregarDescuento(Descuento model)
         {
-            // Lógica para agregar descuento (por ahora no implementada)
+            // Validar datos
+            if (!ModelState.IsValid)
+            {
+                // En caso de error de validación, podemos recargar la vista con la lista y el modelo
+                var lista = ObtenerDescuentos();
+                return View("GestionDescuento", lista);
+            }
+
+            // Llamamos al SP "pa_AgregarDescuento"
+            string sp = "pa_AgregarDescuento";
+            using (SqlConnection cn = new SqlConnection(SqlConection.CadenaConexion))
+            {
+                SqlCommand cmd = new SqlCommand(sp, cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@descripcion", model.Descripcion);
+                cmd.Parameters.AddWithValue("@porcentaje", model.Porcentaje);
+
+                cn.Open();
+                cmd.ExecuteNonQuery(); // Ejecuta el insert
+            }
+
             return RedirectToAction("GestionDescuento");
         }
 
-        // Acción para editar un descuento (no implementada aún)
+        // Acción para editar un descuento
         [HttpPost]
         public ActionResult EditarDescuento(Descuento model)
         {
-            // Lógica para editar descuento (por ahora no implementada)
+            // Validar datos
+            if (!ModelState.IsValid)
+            {
+                // Retornar la misma vista con la data
+                var lista = ObtenerDescuentos();
+                return View("GestionDescuento", lista);
+            }
+
+            // Llamamos al SP "pa_EditarDescuento"
+            string sp = "pa_EditarDescuento";
+            using (SqlConnection cn = new SqlConnection(SqlConection.CadenaConexion))
+            {
+                SqlCommand cmd = new SqlCommand(sp, cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@idDescuento", model.IdDescuento);
+                cmd.Parameters.AddWithValue("@descripcion", model.Descripcion);
+                cmd.Parameters.AddWithValue("@porcentaje", model.Porcentaje);
+
+                cn.Open();
+                cmd.ExecuteNonQuery(); // Ejecuta el update
+            }
+
             return RedirectToAction("GestionDescuento");
         }
 
-        // Acción para eliminar un descuento (no implementada aún)
+        // Acción para eliminar (desactivar) un descuento
         [HttpPost]
         public ActionResult EliminarDescuento(string idDescuento)
         {
-            // Lógica para eliminar descuento (por ahora no implementada)
+            // Llamamos al SP "pa_EliminarDescuento"
+            string sp = "pa_EliminarDescuento";
+            using (SqlConnection cn = new SqlConnection(SqlConection.CadenaConexion))
+            {
+                SqlCommand cmd = new SqlCommand(sp, cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@idDescuento", idDescuento);
+
+                cn.Open();
+                cmd.ExecuteNonQuery(); // UPDATE ... estado=0
+            }
+
             return RedirectToAction("GestionDescuento");
         }
     }
 }
+

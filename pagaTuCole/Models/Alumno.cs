@@ -29,7 +29,10 @@ namespace pagaTuCole.Models
 
         public string Parentesco { get; set; }
         public DateTime FechaRegistro { get; set; }
+
         public string IdPersona { get; set; }
+        public string IdNivel { get; set; }
+        public string IdTipoDocumento { get; set; }
         public string IdDescuento { get; set; }
     }
 }

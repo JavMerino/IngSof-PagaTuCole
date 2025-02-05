@@ -18,6 +18,7 @@ namespace pagaTuCole.Models
         public string ApPaterno { get; set; }
         public string ApMaterno { get; set; }
         public string TipoDocumento { get; set; }
+        public string IdTipoDocumento { get; set; }
         public string NumDocumento { get; set; }
         public string Email { get; set; }
         public DateTime FecNacimiento { get; set; }

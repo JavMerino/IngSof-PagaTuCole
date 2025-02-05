@@ -37,10 +37,11 @@ namespace pagaTuCole.Controllers
                         conceptos.Add(new Concepto
                         {
                             IdConcepto = reader["id_concepto"].ToString(),
-                            Descripcion = reader["descripcion"].ToString(),
+                            Descripcion = reader["concepto_descripcion"].ToString(),
                             Importe = Convert.ToDecimal(reader["importe"]),
                             Estado = Convert.ToBoolean(reader["estado"]),
-                            Nivel = reader["id_nivel"].ToString(),
+                            IdNivel = reader["id_nivel"].ToString(),
+                            Nivel = reader["nivel_descripcion"].ToString(),
                             Mes = reader["mes"].ToString()
                         });
                     }
@@ -54,7 +55,22 @@ namespace pagaTuCole.Controllers
         [HttpPost]
         public ActionResult AgregarConcepto(Concepto model)
         {
-            // Lógica para agregar concepto (por ahora no implementada)
+            if (ModelState.IsValid)
+            {
+                using (SqlConnection cn = new SqlConnection(SqlConection.CadenaConexion))
+                {
+                    SqlCommand cmd = new SqlCommand("pa_InsertarConcepto", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@descripcion", model.Descripcion);
+                    cmd.Parameters.AddWithValue("@importe", model.Importe);
+                    cmd.Parameters.AddWithValue("@mes", model.Mes);
+                    cmd.Parameters.AddWithValue("@id_nivel", model.IdNivel ?? (object)DBNull.Value); // Manejar niveles nulos
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
             return RedirectToAction("GestionConcepto");
         }
 

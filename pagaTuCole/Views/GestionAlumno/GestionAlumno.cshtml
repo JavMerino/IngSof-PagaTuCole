@@ -1,5 +1,6 @@
 ﻿@{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var listaDescuentos = ViewBag.ListaDescuentos as List<pagaTuCole.Models.Descuento>;
 }
 
 <!DOCTYPE html>
@@ -10,6 +11,7 @@
     <title>Gestión de Alumnos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="~/Content/CSS/">
 </head>
 
 <body>
@@ -19,19 +21,28 @@
 
             <!-- Botón de agregar alumno -->
             <div class="d-flex justify-content-between align-items-center mb-4">
+                <form class="form-inline">
+                    <input type="text" id="searchBox" class="form-control mr-2" placeholder="Buscar Alumno..." onkeyup="searchTable()" />
+
+                </form>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addAlumnoModal">
                     <i class="fas fa-plus"></i> Agregar Alumno
                 </button>
             </div>
 
             <!-- Tabla de alumnos -->
-            <table class="table table-bordered">
+            <table class="table table-bordered"  id="tablaAlumnos">
                 <thead class="thead-dark">
                     <tr>
                         <th>Nombre Completo</th>
+                        <th>Tipo Documento</th>
+                        <th>N° Documento</th>
                         <th>Grado</th>
                         <th>Nivel</th>
                         <th>Descuento</th>
+                        <th>Telefono</th>
+                        <th>Direccion</th>
+                        <th>Fecha de Ingreso</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
@@ -41,22 +52,38 @@
                     {
                         <tr>
                             <td>@alumno.Nombres @alumno.ApPaterno @alumno.ApMaterno</td>
+                            <td>@alumno.TipoDocumento</td>
+                            <td>@alumno.NumDocumento</td>
                             <td>@alumno.Grado</td>
                             <td>@alumno.Nivel</td>
                             <td>@alumno.Descuento</td>
+                            <td>@alumno.Telefono</td>
+                            <td>@alumno.Direccion</td>
+                            <td>@alumno.FechaRegistro.ToString("yyyy-MM-dd")</td>
+
                             <td>@(alumno.Estado ? "Activo" : "Inactivo")</td>
                             <td>
                                 <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editAlumnoModal"
                                         data-id="@alumno.IdAlumno"
+                                        data-idPersona="@alumno.IdPersona"
                                         data-nombres="@alumno.Nombres"
+                                        data-apPaterno="@alumno.ApPaterno"
+                                        data-apMaterno="@alumno.ApMaterno"
+                                        data-tipoDocumento="@alumno.IdTipoDocumento"
+                                        data-numDocumento="@alumno.NumDocumento"
                                         data-grado="@alumno.Grado"
-                                        data-idnivel="@alumno.Nivel"
+                                        data-idNivel="@alumno.IdNivel"
+                                        data-nivel="@alumno.Nivel"
                                         data-descuento="@alumno.Descuento"
+                                        data-idDescuento="@alumno.IdDescuento"
+                                        data-telefono="@alumno.Telefono"
+                                        data-direccion="@alumno.Direccion"
+                                        data-fecRegistro="@alumno.FechaRegistro.ToString("yyyy-MM-dd")"
                                         onclick="handleEdit(this)">
-                                    <i class="fas fa-edit"></i> Editar
+                                    <i class="fas fa-edit"></i>
                                 </button>
                                 <button class="btn btn-danger btn-sm" data-id="@alumno.IdAlumno" onclick="handleDelete(this)">
-                                    <i class="fas fa-trash"></i> Eliminar
+                                    <i class="fas fa-trash"></i> 
                                 </button>
                             </td>
                         </tr>
@@ -82,16 +109,79 @@
                                 <input type="text" class="form-control" id="nombres" name="Nombres" required />
                             </div>
                             <div class="form-group">
+                                <label for="nombres">Apellido Paterno</label>
+                                <input type="text" class="form-control" id="apPaterno" name="ApPaterno" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="nombres">Apellido Materno</label>
+                                <input type="text" class="form-control" id="apMaterno" name="ApMaterno" required />
+                            </div>
+                            <div class="form-group">
                                 <label for="grado">Grado</label>
-                                <input type="text" class="form-control" id="grado" name="Grado" required />
+                                <select class="form-control" id="grado" name="grado" required>
+                                    <option value="">Seleccione un grado</option>
+                                    <option value="1">1er Grado</option>
+                                    <option value="2">2do Grado</option>
+                                    <option value="3">3er Grado</option>
+                                    <option value="4">4to Grado</option>
+                                    <option value="5">5to Grado</option>
+                                    <option value="6">6to Grado</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="idNivel">Nivel</label>
-                                <input type="text" class="form-control" id="idNivel" name="Nivel" required maxlength="1" />
+                                <select class="form-control" id="idNivel" name="idNivel" required>
+                                    <option value="">Seleccione un nivel</option>
+                                    <option value="1">Inicial</option>
+                                    <option value="2">Primaria</option>
+                                    <option value="3">Secundaria</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="idDescuento">Descuento</label>
-                                <input type="text" class="form-control" id="idDescuento" name="IdDescuento" />
+                                <select class="form-control" id="idDescuento" name="IdDescuento">
+                                    <option value="">-- Seleccione un descuento --</option>
+                                    @if (listaDescuentos != null)
+                                    {
+                                        foreach (var desc in listaDescuentos)
+                                        {
+                                            <option value="@desc.IdDescuento">
+                                                @desc.Descripcion
+                                            </option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Tipo Documento</label>
+                                <select class="form-control" id="editTipoDocumento" name="IdTipoDocumento" required>
+                                    <option value="">Seleccione el tipo de documento</option>
+                                    <option value="DOC001">DNI</option>
+                                    <option value="DOC002">Pasaporte</option>
+                                    <option value="DOC003">Carnet de extranjería</option>
+                                    <option value="DOC004">RUC</option>
+                                    <option value="DOC005">Licencia</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="numDocumento">Número Documento</label>
+                                <input type="number" class="form-control" id="numDocumento" name="NumDocumento" placeholder="Ingrese el número de documento" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="Email" placeholder="Ingrese el email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="direccion">Dirección</label>
+                                <input type="text" class="form-control" id="direccion" name="Direccion" placeholder="Ingrese la dirección" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="teleContacto">Teléfono</label>
+                                <input type="tel" class="form-control" id="telefono" name="Telefono" placeholder="Ingrese el teléfono" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fecNacimiento">Fecha Nacimiento</label>
+                                <input type="date" name="FecNacimiento" class="form-control" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -116,25 +206,87 @@
                     <form method="post" action="/GestionAlumno/EditarAlumno">
                         <div class="modal-body">
                             <input type="hidden" id="editId" name="IdAlumno" />
+                            <input type="hidden" id="editIdPersona" name="IdPersona" />
+
                             <div class="form-group">
                                 <label>Nombres</label>
                                 <input type="text" id="editNombres" name="Nombres" class="form-control" required />
                             </div>
 
                             <div class="form-group">
+                                <label>Apellido Paterno</label>
+                                <input type="text" id="editApPaterno" name="ApPaterno" class="form-control" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Apellido Materno</label>
+                                <input type="text" id="editApMaterno" name="ApMaterno" class="form-control" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tipo Documento</label>
+                                <select class="form-control" id="editTipoDocumento" name="IdTipoDocumento" required   >
+                                    <option value="">Seleccione el tipo de documento</option>
+                                    <option value="DOC001">DNI</option>
+                                    <option value="DOC002">Pasaporte</option>
+                                    <option value="DOC003">Carnet de extranjería</option>
+                                    <option value="DOC004">RUC</option>
+                                    <option value="DOC005">Licencia</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Número de Documento</label>
+                                <input type="text" id="editNumDocumento" name="NumDocumento" class="form-control" required />
+                            </div>
+
+                            <div class="form-group">
                                 <label>Grado</label>
-                                <input type="text" id="editGrado" name="Grado" class="form-control" required />
+                                <select class="form-control" id="editGrado" name="Grado" required>
+                                    <option value="">Seleccione un grado</option>
+                                    <option value="1">1er Grado</option>
+                                    <option value="2">2do Grado</option>
+                                    <option value="3">3er Grado</option>
+                                    <option value="4">4to Grado</option>
+                                    <option value="5">5to Grado</option>
+                                    <option value="6">6to Grado</option>
+                                </select>
                             </div>
 
                             <div class="form-group">
                                 <label>Nivel</label>
-                                <input type="text" id="editIdNivel" name="Nivel" class="form-control" required maxlength="1" />
+                                <select class="form-control" id="editIdNivel" name="IdNivel" required>
+                                    <option value="">Seleccione un nivel</option>
+                                    <option value="1">Inicial</option>
+                                    <option value="2">Primaria</option>
+                                    <option value="3">Secundaria</option>
+                                </select>
                             </div>
 
                             <div class="form-group">
                                 <label>Descuento</label>
-                                <input type="text" id="editIdDescuento" name="IdDescuento" class="form-control" />
+                                <select class="form-control" id="editIdDescuento" name="IdDescuento">
+                                    <option value="">-- Seleccione un descuento --</option>
+                                    @if (listaDescuentos != null)
+                                    {
+                                        foreach (var desc in listaDescuentos)
+                                        {
+                                            <option value="@desc.IdDescuento">@desc.Descripcion</option>
+                                        }
+                                    }
+                                </select>
                             </div>
+
+                            <div class="form-group">
+                                <label>Teléfono</label>
+                                <input type="tel" id="editTelefono" name="Telefono" class="form-control" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Dirección</label>
+                                <input type="text" id="editDireccion" name="Direccion" class="form-control" required />
+                            </div>
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -156,24 +308,64 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        
+
         function handleEdit(button) {
+            // Mostrar el modal
+            $('#editAlumnoModal').modal('show');
+
+            // Obtener valores de los atributos data-
             const id = button.getAttribute('data-id');
+            const idPersona = button.getAttribute('data-idpersona');
             const nombres = button.getAttribute('data-nombres');
+            const apPaterno = button.getAttribute('data-appaterno');
+            const apMaterno = button.getAttribute('data-apmaterno');
+            const tipoDocumento = button.getAttribute('data-tipodocumento');
+            const numDocumento = button.getAttribute('data-numdocumento');
+            const direccion = button.getAttribute('data-direccion');
+            const telefono = button.getAttribute('data-telefono');
             const grado = button.getAttribute('data-grado');
             const idNivel = button.getAttribute('data-idnivel');
-            const descuento = button.getAttribute('data-descuento');
-
+            const idDescuento = button.getAttribute('data-iddescuento');
+             // Ej: "DNI" o "DOC001" o "4" ...
+            // Asignar valores a los campos del modal
             document.getElementById('editId').value = id;
+            document.getElementById('editIdPersona').value = idPersona;
             document.getElementById('editNombres').value = nombres;
+            document.getElementById('editApPaterno').value = apPaterno;
+            document.getElementById('editApMaterno').value = apMaterno;
+            document.getElementById('editTipoDocumento').value = tipoDocumento;
+
+            document.getElementById('editNumDocumento').value = numDocumento;
+            document.getElementById('editDireccion').value = direccion;
+            document.getElementById('editTelefono').value = telefono;
             document.getElementById('editGrado').value = grado;
             document.getElementById('editIdNivel').value = idNivel;
-            document.getElementById('editIdDescuento').value = descuento;
+            document.getElementById('editIdDescuento').value = idDescuento;
         }
 
         function handleDelete(button) {
             const id = button.getAttribute('data-id');
             document.getElementById('deleteIdAlumno').value = id;
             document.getElementById('formDelete').submit();
+        }
+
+        function searchTable() {
+            const input = document.getElementById('searchBox');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('tablaAlumnos');
+            const tr = table.getElementsByTagName('tr');
+
+            // Empezamos en i=1 para no tocar la primera fila (cabecera)
+            for (let i = 1; i < tr.length; i++) {
+                let rowText = tr[i].textContent.toLowerCase();
+
+                if (rowText.indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
         }
     </script>
 </body>
