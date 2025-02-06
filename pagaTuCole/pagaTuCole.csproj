@@ -234,6 +234,9 @@
     <Content Include="Views\GestionAdministrador\GestionAdministrador.cshtml" />
     <Content Include="Views\Reportes\Reportes.cshtml" />
     <Content Include="Views\GestionApoderado\ConsultarAlumnos.cshtml" />
+    <Content Include="Views\Reportes\ReporteAlumnosPorNivelGrado.cshtml" />
+    <Content Include="Views\Reportes\ReporteApoderadosConAlumnos.cshtml" />
+    <Content Include="Views\Reportes\ReportePagos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

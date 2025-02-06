@@ -1,0 +1,123 @@
+﻿@model List<pagaTuCole.Controllers.ReportePagos>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reporte de Pagos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .action-buttons {
+            margin-bottom: 20px;
+        }
+
+        .btn-return {
+            margin-right: 10px; /* Espacio entre el botón de regresar y el de imprimir */
+        }
+
+        /* Alinear la barra de búsqueda a la izquierda en la misma línea que los botones */
+        .search-and-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Establecer un límite de ancho para la barra de búsqueda */
+        .search-bar {
+            flex: 1;
+            max-width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+
+        <div class="container-fluid mt-5">
+            <h2 class="mb-4">Reporte de Pagos</h2>
+
+            <!-- Barra de búsqueda y botones alineados -->
+            <div class="search-and-buttons mb-4">
+                <form class="form-inline search-bar">
+                    <input type="text" id="searchBox" class="form-control w-100" placeholder="Buscar..." onkeyup="searchTable()" />
+                </form>
+
+                <!-- Botones de acción (Regresar e Imprimir) -->
+                <div class="text-right action-buttons">
+                    <!-- Botón para regresar a la vista principal de reportes -->
+                    <a href="@Url.Action("Reportes", "Reportes")" class="btn btn-secondary btn-return">
+                        <i class="fas fa-arrow-left"></i> Regresar
+                    </a>
+
+                    <!-- Botón para imprimir el reporte -->
+                    <button class="btn btn-primary" onclick="window.print()">
+                        <i class="fas fa-print"></i> Imprimir Reporte
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tabla de pagos -->
+            <table id="tablaReporte" class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID Pago</th>
+                        <th>Fecha</th>
+                        <th>Tipo de Pago</th>
+                        <th>Importe Total</th>
+                        <th>Estado</th>
+                        <th>Alumno</th>
+                        <th>Apoderado</th>
+                        <th>Mes de Pensión</th>
+                        <th>Concepto Adicional</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var pago in Model)
+                    {
+                        <tr>
+                            <td>@pago.IdPago</td>
+                            <td>@pago.Fecha.ToString("yyyy-MM-dd")</td>
+                            <td>@pago.TipoPago</td>
+                            <td>@pago.ImporteTotal</td>
+                            <td>@pago.EstadoPago</td>
+                            <td>@pago.NombreAlumno</td>
+                            <td>@pago.NombreApoderado</td>
+                            <td>@pago.MesPension</td>
+                            <td>@pago.ConceptoAdicional</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <script>function searchTable() {
+                const input = document.getElementById('searchBox');
+                const filter = input.value.toLowerCase();
+                const table = document.getElementById('tablaReporte');
+                const tr = table.getElementsByTagName('tr');
+
+                // Empezamos en i=1 para no tocar la primera fila (cabecera)
+                for (let i = 1; i < tr.length; i++) {
+                    let rowText = tr[i].textContent.toLowerCase();
+
+                    if (rowText.indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }</script>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,8 +1,103 @@
-﻿
-@{
-    ViewBag.Title = "Reportes";
+﻿@{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Reportes</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Reportes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
 
+<body>
+    <main>
+        <div class="container-fluid mt-5">
+            <h2 class="mb-4">Gestión de Reportes</h2>
+
+            <!-- Botón de agregar reporte (opcional) -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <form class="form-inline">
+                    <input type="text" id="searchBox" class="form-control mr-2" placeholder="Buscar Reporte..." onkeyup="searchTable()" />
+                </form>
+                <!-- Si deseas agregar un botón para crear reportes, puedes descomentar esto -->
+                <!--
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addReporteModal">
+                    <i class="fas fa-plus"></i> Agregar Reporte
+                </button>
+                -->
+            </div>
+
+            <!-- Tabla de reportes -->
+            <table class="table table-bordered" id="tablaReporte">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- Fila para el Reporte de Pagos -->
+                    <tr>
+                        <td>Reporte de Pagos</td>
+                        <td>
+                            <a href="@Url.Action("ReportePagos", "Reportes")" class="btn btn-primary">
+                                <i class="btn-primary" -></i> Generar
+                            </a>
+                        </td>
+                    </tr>
+
+                    <!-- Fila para el Reporte de Alumnos por Nivel y Grado -->
+                    <tr>
+                        <td>Reporte de Alumnos por Nivel y Grado</td>
+                        <td>
+                            <a href="@Url.Action("ReporteAlumnosPorNivelGrado", "Reportes")" class="btn btn-primary">
+                                <i class="btn-primary" -></i> Generar
+                            </a>
+                        </td>
+                    </tr>
+
+                    <!-- Fila para el Reporte de Apoderados con Cantidad de Alumnos a Cargo -->
+                    <tr>
+                        <td>Reporte de Apoderados con Cantidad de Alumnos a Cargo</td>
+                        <td>
+                            <a href="@Url.Action("ReporteApoderadosConAlumnos", "Reportes")" class="btn btn-primary">
+                                <i class="btn-primary"></i> Generar
+                            </a>
+                        </td>
+                    </tr>
+
+                    <!-- Aquí puedes agregar más filas para otros reportes en el futuro -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+            function searchTable() {
+                const input = document.getElementById('searchBox');
+                const filter = input.value.toLowerCase();
+                const table = document.getElementById('tablaReporte');
+                const tr = table.getElementsByTagName('tr');
+
+                // Empezamos en i=1 para no tocar la primera fila (cabecera)
+                for (let i = 1; i < tr.length; i++) {
+                    let rowText = tr[i].textContent.toLowerCase();
+
+                    if (rowText.indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        </script>
+    </main>
+</body>
+</html>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -127,7 +128,8 @@ namespace pagaTuCole.Controllers
                             alumnos.Add(new Alumno
                             {
                             IdAlumno = reader["id_alumno"].ToString(),
-                            Nombres = $"{reader["nombre_alumno"]} {reader["apellido_paterno"]} {reader["apellido_materno"]}",
+                            IdApoderadoAlumno = reader["idApoderadoAlumno"].ToString(),
+                                Nombres = $"{reader["nombre_alumno"]} {reader["apellido_paterno"]} {reader["apellido_materno"]}",
                             Grado = reader["grado"].ToString(),
                             TipoDocumento = reader["tipo_documento"].ToString(),
                             NumDocumento = reader["numero_documento"].ToString() ,
@@ -174,6 +176,45 @@ namespace pagaTuCole.Controllers
         {
             Session["usuario"] = null;
             return RedirectToAction("Login", "Acceso");
+        }
+
+        [HttpGet]
+        public JsonResult ObtenerMensualidades(string IdApoderadoAlumno)
+        {
+            var mensualidades = new List<PensionEnseñanza>();
+
+            using (SqlConnection cn = new SqlConnection(SqlConection.CadenaConexion))
+            {
+                SqlCommand cmd = new SqlCommand("pa_ObtenerMensualidades", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_apoderadoAlumno", IdApoderadoAlumno);
+                cn.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        mensualidades.Add(new PensionEnseñanza
+                        {
+                            IdPensionEnseñanza = reader["id_pensionEnseñanza"].ToString(),
+                            IdApoderadoAlumno = reader["id_apoderadoAlumno"].ToString(),
+                            ImporteTotal = Convert.ToDecimal(reader["importeTotal"]),
+                            Mes = reader["mes"].ToString(),
+                            Estado = Convert.ToInt32(reader["estado"]) // Asegúrate de agregar el estado en tu procedimiento almacenado
+                        });
+                    }
+                }
+            }
+
+            // Convertir a JSON
+            return Json(mensualidades.Select(m => new
+            {
+                IdPensionEnseñanza = m.IdPensionEnseñanza,
+                IdApoderadoAlumno = m.IdApoderadoAlumno,
+                ImporteTotal = m.ImporteTotal,
+                Mes = m.Mes,
+                Estado = m.Estado // 0: Pendiente, 1: Pagado
+            }), JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -52,7 +52,7 @@ using System.Data.SqlClient;
                                     if (!rol) // Administrador
                                     {
                                         ViewBag.Layout = "~/Views/Shared/_AdminLayout.cshtml";
-                                        return RedirectToAction("GestionApoderado", "Administrador");
+                                        return RedirectToAction("GestionApoderado", "GestionApoderado");
                                     }
                                     else // Apoderado
                                     {

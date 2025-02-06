@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/Content/CSS/pagos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/CSS/pagoMensualidad.css">
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 </head>
 <body>
     <main>
@@ -18,104 +23,124 @@
 
         <div class="students-section">
             <h3>Alumnos a Cargo</h3>
-            <div class="students-grid">
-                @foreach (var alumno in Model.Alumnos)
-                {
-                    <div class="student-card">
-                        <h4>@alumno.Nombres</h4>
-                        <p>Grado: @alumno.Grado</p>
-                        <p>Nivel: @alumno.Nivel</p>
-                        <p>Parentesco: @alumno.Parentesco</p>
-                        <div class="payment-status">
-                            <h5>Pensiones 2024</h5>
-                            <div class="months-grid">
-                                <div class="month paid">Ene</div>
-                                <div class="month paid">Feb</div>
-                                <div class="month pending">Mar</div>
-                                <div class="month pending">Abr</div>
-                                <div class="month">May</div>
-                                <div class="month">Jun</div>
-                                <div class="month">Jul</div>
-                                <div class="month">Ago</div>
-                                <div class="month">Sep</div>
-                                <div class="month">Oct</div>
-                                <div class="month">Nov</div>
-                                <div class="month">Dic</div>
-                            </div>
-                        </div>
-                        <button class="pay-button">Realizar Pago</button>
-                    </div>
-                }
+            <div class="d-flex justify-content-between align-items-center mb-4">
             </div>
+
+            <table class="table table-bordered" id="tablaAlumnos">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>Tipo Documento</th>
+                        <th>N° Documento</th>
+                        <th>Grado</th>
+                        <th>Nivel</th>
+                        <th>Descuento</th>
+                        <th>Telefono</th>
+                        <th>Direccion</th>
+                        <th>Parentesco</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var alumno in Model.Alumnos)
+                    {
+                        <tr>
+                            <td>@alumno.Nombres @alumno.ApPaterno @alumno.ApMaterno</td>
+                            <td>@alumno.TipoDocumento</td>
+                            <td>@alumno.NumDocumento</td>
+                            <td>@alumno.Grado</td>
+                            <td>@alumno.Nivel</td>
+                            <td>@alumno.Descuento</td>
+                            <td>@alumno.Telefono</td>
+                            <td>@alumno.Direccion</td>
+                            <td>@alumno.Parentesco</td>
+
+                            <td>@(alumno.Estado ? "Activo" : "Inactivo")</td>
+                            <td>
+
+                                <button class="btn btn-primary btn-sm" onclick="handlePagar(this)" data-id="@alumno.IdApoderadoAlumno">
+                                    <i class="fas fa-dollar-sign"></i> Pagar
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
         <!-- Modal de Pago -->
-        <div id="paymentModal" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Realizar Pago de Pensiones</h3>
-                    <button class="close-modal">&times;</button>
-                </div>
-
-                <div class="student-info">
-                    <p><strong>Alumno:</strong> <span id="studentName">María Pérez</span></p>
-                    <p><strong>Grado:</strong> <span id="studentGrade">3ro Secundaria</span></p>
-                </div>
-
-                <h4>Seleccione los meses a pagar:</h4>
-                <div class="month-selection">
-                    <input type="checkbox" id="month4" class="month-checkbox" data-amount="550">
-                    <label for="month4" class="month-label">Abril</label>
-
-                    <input type="checkbox" id="month5" class="month-checkbox" data-amount="550">
-                    <label for="month5" class="month-label">Mayo</label>
-
-                    <input type="checkbox" id="month6" class="month-checkbox" data-amount="550">
-                    <label for="month6" class="month-label">Junio</label>
-
-                    <input type="checkbox" id="month7" class="month-checkbox" data-amount="550">
-                    <label for="month7" class="month-label">Julio</label>
-                </div>
-
-                <div class="payment-details">
-                    <div class="payment-row">
-                        <span>Subtotal:</span>
-                        <span id="subtotal">S/. 0.00</span>
+        <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="paymentModalLabel">Realizar Pago de Pensiones</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div class="payment-row">
-                        <span>Mora:</span>
-                        <span id="mora">S/. 0.00</span>
-                    </div>
-                    <div class="payment-row total-row">
-                        <span>Total a pagar:</span>
-                        <span id="total">S/. 0.00</span>
-                    </div>
-                </div>
+                    <!-- Información del alumno -->
+                    <div class="modal-body">
+                        <div class="student-info">
+                            <p><strong>Alumno:</strong> <span id="studentName"></span></p>
+                            <p><strong>Grado:</strong> <span id="studentGrade"></span> <span id="studentLevel"></span></p>
+                            <p><strong>N° Documento:</strong> <span id="studentNumDocumento"></span></p>
+                            <p><strong>Descuento:</strong> <span id="studentDescuento"></span></p>
+                        </div>
 
-                <div class="payment-methods">
-                    <h4>Método de pago:</h4>
-                    <label class="payment-method-option">
-                        <input type="radio" name="paymentMethod" value="card">
-                        Tarjeta de Crédito/Débito
-                    </label>
-                    <label class="payment-method-option">
-                        <input type="radio" name="paymentMethod" value="yape">
-                        Yape
-                    </label>
-                    <label class="payment-method-option">
-                        <input type="radio" name="paymentMethod" value="plin">
-                        Plin
-                    </label>
-                </div>
+                        <h4>Seleccione los meses a pagar:</h4>
+                        <div class="month-selection">
+                            <input type="checkbox" id="month4" class="month-checkbox" data-amount="550">
+                            <label for="month4" class="month-label">Abril</label>
+                        </div>
 
-                <div class="action-buttons">
-                    <button class="cancel-button">Cancelar</button>
-                    <button class="confirm-button">Confirmar Pago</button>
+                        <div class="payment-details">
+                            <div class="payment-row">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">S/. 0.00</span>
+                            </div>
+                            <div class="payment-row">
+                                <span>Mora:</span>
+                                <span id="mora">S/. 0.00</span>
+                            </div>
+                            <div class="payment-row total-row">
+                                <span>Total a pagar:</span>
+                                <span id="total">S/. 0.00</span>
+                            </div>
+                        </div>
+
+                        <div class="payment-methods">
+                            <h4>Método de pago:</h4>
+                            <div class="payment-method-option">
+                                <label>
+                                    <input type="radio" name="paymentMethod" value="card">
+                                    Tarjeta de Crédito/Débito
+                                </label>
+                            </div>
+                            <div class="payment-method-option">
+                                <label>
+                                    <input type="radio" name="paymentMethod" value="yape">
+                                    Yape
+                                </label>
+                            </div>
+                            <div class="payment-method-option">
+                                <label>
+                                    <input type="radio" name="paymentMethod" value="plin">
+                                    Plin
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary cancel-button" data-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-primary confirm-button" onclick="confirmarPago()">Confirmar Pago</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
 
-        <div class="additional-payments">
+        @*<div class="additional-payments">
             <h3>Pagos Adicionales</h3>
             <div class="additional-payments-list">
                 <div class="payment-item">
@@ -145,26 +170,214 @@
                     <span class="status-paid">Pagado</span>
                 </div>
             </div>
-        </div>
+        </div>*@
         <br />
-        <h3>Resumen de pagos</h3>
-        <div class="summary-card">
-            <div class="summary-item">
-                <h5>Pensiones Pendientes</h5>
-                <p>S/. 550.00</p>
-                <span class="detail">1 mes pendientes</span>
-            </div>
-            <div class="summary-item">
-                <h5>Pagos Adicionales</h5>
-                <p>S/. 100.00</p>
-                <span class="detail">2 pagos pendientes</span>
-            </div>
-            <div class="summary-item total">
-                <h5>Total a Pagar</h5>
-                <p>S/. 650.00</p>
-            </div>
-        </div>
+        
     </main>
     <script src="~/Scripts/payment.js"></script>
+        <script>
+        const modal = document.getElementById('paymentModal');
+        const closeButton = modal.querySelector('.close-modal');
+        const cancelButton = modal.querySelector('.cancel-button');
+        const monthCheckboxes = modal.querySelectorAll('.month-checkbox');
+        const confirmButton = modal.querySelector('.confirm-button');
+
+        // Función para abrir el modal y mostrar datos
+        function handlePagar(button) {
+
+
+            // Reiniciar valores del modal
+            const monthSelection = document.querySelector('.month-selection');
+            if (monthSelection) {
+                monthSelection.innerHTML = '';
+            }
+            document.getElementById('subtotal').textContent = 'S/. 0.00';
+            document.getElementById('mora').textContent = 'S/. 0.00';
+            document.getElementById('total').textContent = 'S/. 0.00';
+            // Obtener el ID del apoderado-alumno desde el botón
+            const idApoderadoAlumno = button.getAttribute('data-id');
+            const row = button.closest('tr');
+
+            // Extraemos datos de cada columna según el orden en la tabla:
+            const studentName = row.children[0].textContent.trim();
+            const studentNumDocumento = row.children[2].textContent.trim();
+            const studentGrade = row.children[3].textContent.trim();
+            const studentLevel = row.children[4].textContent.trim();
+            const studentDescuento = row.children[5].textContent.trim();
+
+            // Actualizamos los spans dentro del modal
+            document.getElementById('studentName').textContent = studentName;
+            document.getElementById('studentGrade').textContent = studentGrade;
+            document.getElementById('studentLevel').textContent = studentLevel;
+            document.getElementById('studentNumDocumento').textContent = studentNumDocumento;
+            document.getElementById('studentDescuento').textContent = studentDescuento;
+
+            // Realizar una solicitud AJAX para obtener las mensualidades
+            $.ajax({
+                url: '/Home/ObtenerMensualidades',
+                type: 'GET',
+                data: { idApoderadoAlumno: idApoderadoAlumno },
+                success: function (mensualidades) {
+                    // Limpiar la sección de selección de meses
+                    const monthSelection = document.querySelector('.month-selection');
+                    monthSelection.innerHTML = '';
+
+                    // Recorrer las mensualidades y agregarlas al modal
+                    mensualidades.forEach(mensualidad => {
+                        const checkboxId = `month${mensualidad.Mes}`;
+                        const isDisabled = mensualidad.Estado === 1 ? 'disabled' : ''; // Si está pagado, deshabilitar el checkbox
+                        const isChecked = mensualidad.Estado === 1 ? 'checked' : '';   // Si está pagado, marcar como seleccionado
+                        // Asignar clase: estado 1 → azul; estado 0 → amarillo.
+                        const labelClass = mensualidad.Estado === 1 ? 'blue' : 'yellow';
+
+                        monthSelection.innerHTML += `
+        <input type="checkbox" id="${checkboxId}" class="month-checkbox" data-amount="${mensualidad.ImporteTotal}" ${isDisabled} ${isChecked}>
+        <label for="${checkboxId}" class="month-label ${labelClass}">
+            ${getMonthName(mensualidad.Mes)}
+        </label>
+    `;
+                    });
+
+                    // Reasignar los eventos a los checkboxes recién creados
+                    const newCheckboxes = monthSelection.querySelectorAll('.month-checkbox');
+                    newCheckboxes.forEach(checkbox => {
+                        checkbox.addEventListener('change', function () {
+                            autoSelectMonths(this);
+                            updateTotal();
+                        });
+                    });
+
+                    // Mostrar el modal
+                    $('#paymentModal').modal('show');
+                },
+                error: function () {
+                    alert('Error al cargar las mensualidades. Inténtelo de nuevo.');
+                }
+            });
+        }
+
+        function autoSelectMonths(changedCheckbox) {
+            // Se extrae el número de mes a partir del id (asumiendo formato "monthX")
+            const currentMonthNumber = parseInt(changedCheckbox.id.replace('month', ''), 10);
+            // Obtenemos todos los checkboxes de la selección
+            const checkboxes = document.querySelectorAll('.month-selection .month-checkbox');
+
+            if (changedCheckbox.checked) {
+                // Al marcar: se marcan todos los meses pendientes anteriores al actual
+                checkboxes.forEach(cb => {
+                    const cbMonth = parseInt(cb.id.replace('month', ''), 10);
+                    // Si el mes del checkbox es anterior y no está deshabilitado (ya pagado), se marca
+                    if (cbMonth < currentMonthNumber && !cb.disabled) {
+                        cb.checked = true;
+                    }
+                });
+            } else {
+                // Al desmarcar: se desmarcan todos los meses pendientes posteriores al actual
+                checkboxes.forEach(cb => {
+                    const cbMonth = parseInt(cb.id.replace('month', ''), 10);
+                    if (cbMonth > currentMonthNumber && !cb.disabled) {
+                        cb.checked = false;
+                    }
+                });
+            }
+        }
+        // Función para obtener el nombre del mes a partir del número (1-12)
+        function getMonthName(monthNumber) {
+            const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+            return months[parseInt(monthNumber, 10) - 1];
+        }
+
+        // ----------------------------
+        // Funciones para cerrar modal
+        // ----------------------------
+        function closeModal() {
+            $('#paymentModal').modal('hide');
+            // Al cerrar, podemos limpiar los campos si deseamos
+            monthCheckboxes.forEach(checkbox => checkbox.checked = false);
+            updateTotal();
+        }
+
+        closeButton.addEventListener('click', closeModal);
+        cancelButton.addEventListener('click', closeModal);
+
+        // Cerrar modal al hacer clic fuera del contenido
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // ----------------------------
+        // Cálculo de pagos y mora
+        // ----------------------------
+        function updateTotal() {
+            let subtotal = 0;
+            let mora = 0;
+            // Consultamos los checkboxes actuales
+            const checkboxes = document.querySelectorAll('.month-selection .month-checkbox');
+
+            checkboxes.forEach(checkbox => {
+                // Sólo consideramos los checkboxes que estén marcados y que no estén deshabilitados (es decir, pendientes)
+                if (checkbox.checked && !checkbox.disabled) {
+                    const amount = parseFloat(checkbox.dataset.amount);
+                    subtotal += amount;
+                    // Ejemplo: si el mes es anterior al mes actual se aplica recargo (10%)
+                    const monthNumber = parseInt(checkbox.id.replace('month', ''), 10);
+                    const currentMonth = new Date().getMonth() + 1;
+                    if (monthNumber < currentMonth) {
+                        mora += amount * 0.1;
+                    }
+                }
+            });
+
+            document.getElementById('subtotal').textContent = `S/. ${subtotal.toFixed(2)}`;
+            document.getElementById('mora').textContent = `S/. ${mora.toFixed(2)}`;
+            document.getElementById('total').textContent = `S/. ${(subtotal + mora).toFixed(2)}`;
+        }
+
+        // Cada vez que se marcan o desmarcan meses, recalculamos
+        monthCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateTotal);
+        });
+
+        // ----------------------------
+        // Confirmar Pago
+        // ----------------------------
+        function confirmarPago() {
+            // Verificar método de pago
+            var metodo = document.querySelector('input[name="paymentMethod"]:checked');
+            if (!metodo) {
+                alert("Por favor, seleccione un método de pago");
+                return;
+            }
+
+            // Verificar que al menos un mes pendiente (no deshabilitado) esté seleccionado
+            var meses = document.querySelectorAll('.month-selection .month-checkbox:not([disabled]):checked');
+            if (meses.length === 0) {
+                alert("Por favor, seleccione al menos un mes pendiente para pagar");
+                return;
+            }
+
+            alert("Procesando pago...");
+
+            // Aquí puedes agregar la llamada a tu backend o la lógica de pago.
+
+            // Simulamos un pago exitoso:
+            closeModal();
+            updatePaymentStatus();
+        }
+
+        function updatePaymentStatus() {
+            // Ejemplo: cambiar estilo de los meses pagados
+            monthCheckboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    const label = document.querySelector(`label[for="${checkbox.id}"]`);
+                    if (label) {
+                        label.classList.add('paid'); // Clase que podrías usar en tu CSS
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 </html>

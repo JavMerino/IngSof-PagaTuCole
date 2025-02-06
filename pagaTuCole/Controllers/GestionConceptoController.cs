@@ -6,9 +6,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using pagaTuCole.Models;
+using pagaTuCole.Permisos;
 
 namespace pagaTuCole.Controllers
 {
+    [ValidarSesion]
+
     public class GestionConceptoController : Controller
     {
         // GET: GestionConcepto
@@ -57,18 +60,26 @@ namespace pagaTuCole.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (SqlConnection cn = new SqlConnection(SqlConection.CadenaConexion))
+                try
                 {
-                    SqlCommand cmd = new SqlCommand("pa_InsertarConcepto", cn);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (SqlConnection cn = new SqlConnection(SqlConection.CadenaConexion))
+                    {
+                        SqlCommand cmd = new SqlCommand("pa_InsertarConcepto", cn);
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@descripcion", model.Descripcion);
-                    cmd.Parameters.AddWithValue("@importe", model.Importe);
-                    cmd.Parameters.AddWithValue("@mes", model.Mes);
-                    cmd.Parameters.AddWithValue("@id_nivel", model.IdNivel ?? (object)DBNull.Value); // Manejar niveles nulos
+                        cmd.Parameters.AddWithValue("@descripcion", model.Descripcion);
+                        cmd.Parameters.AddWithValue("@importe", model.Importe);
+                        cmd.Parameters.AddWithValue("@mes", model.Mes);
+                        cmd.Parameters.AddWithValue("@id_nivel", model.IdNivel ?? (object)DBNull.Value);
 
-                    cn.Open();
-                    cmd.ExecuteNonQuery();
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Registra o muestra el error para identificar el problema
+                    throw new Exception("Error al insertar el concepto: " + ex.Message);
                 }
             }
             return RedirectToAction("GestionConcepto");

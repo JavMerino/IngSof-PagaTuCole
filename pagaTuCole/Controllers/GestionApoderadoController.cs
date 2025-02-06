@@ -6,9 +6,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using pagaTuCole.Models;
+using pagaTuCole.Permisos;
 
 namespace pagaTuCole.Controllers
 {
+    [ValidarSesion]
+
     public class GestionApoderadoController : Controller
     {
         // GET: GestionApoderado
